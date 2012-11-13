@@ -1,0 +1,49 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw,_Z27WAC1lEeKgx4EWM9YkNw
+Element-Name: Use Content Assist to Create Main Method
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XD8RAC1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 3:02 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Class1.java;
+2. Type "main" and press Ctrl+Space to activate content assist;
+3. Choose "main method" to insert;
+4. Make sure that
+
+public static void main(String[] args) {
+	
+}
+
+has been inserted. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java" | double-click
+with [get-editor "Class1.java"] {
+    click
+    with [get-text-viewer] {
+        set-caret-pos 3 1
+        type-text "main"
+        key-type "M1+SPACE"
+        key-type Enter
+    }
+}
+get-editor "Class1.java" | get-editbox | get-property text | equals "public class Class1 {\n"
+    + "public static void main(String[] args) {\n"
+    + "\t\n}\n"
+    + "}" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

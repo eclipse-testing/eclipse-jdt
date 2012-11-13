@@ -1,0 +1,46 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7cpoC1lEeKgx4EWM9YkNw
+Element-Name: Export Breakpoints
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: http://jira4.xored.com/browse/QS-2160
+Id: _XBpK8C1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:57 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Class1 and set one breakpoint;
+2. Open Breakpoints view;
+3. Right-click existing breakpoint and select "Export Breakpoints";
+4. Set file name, click Finish. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java/Class1" | double-click
+with [get-editor "Class1.java" | get-left-ruler] {
+    get-ruler-column AnnotationColumn | click-ruler -line 7 -button Right
+    get-menu "Toggle Breakpoint" | click
+}
+get-menu "Window/Show View/Other..." | click
+with [get-window "Show View"] {
+    get-tree | select "Debug/Breakpoints"
+    get-button OK | click
+}
+get-view Breakpoints | get-tree | select "Class1 \\[line: 7\\] - main\\(String\\[\\]\\)" 
+    | get-menu "Export Breakpoints..." | click
+set-dialog-result File "platform:/resource/exportedBreakpoints.bkpt"
+with [get-window "Export Breakpoints"] {
+    get-button "Browse..." | click
+    get-button Finish | click
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

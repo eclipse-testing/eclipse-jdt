@@ -1,0 +1,48 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6wGEC1lEeKgx4EWM9YkNw
+Element-Name: Package Name Abbreviations
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XC_10C1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 3:00 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Create new package "a.b.c";
+2. Go to Preferences page/Java/Appearance;
+3. Set rule for a.b.c={abc};
+4. Make sure that package is displayed as abc. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "New/Package" | click
+with [get-window "New Java Package"] {
+    get-editbox -after [get-label "Name:"] | set-text "a.b.c"
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyProject/src/a.b.c" | get-property caption | equals "a.b.c" 
+    | verify-true
+get-preferences-menu | click
+with [get-window Preferences] {
+    get-tree | select "Java/Appearance"
+    get-button "Abbreviate package names" | click
+    get-editbox 
+        -after [get-label "Newline separated \'package_name=abbreviation\' style abbreviation rules (e.g. rule \'org.eclipse.jdt={JDT}\' will abbreviate \'org.eclipse.jdt.ui\' to \'{JDT}.ui\').Use \'#\' at beginning to disable a rule:"] 
+        | set-text "a.b.c={abc}"
+    get-button Apply | click
+    get-button OK | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyProject/src/{abc}" | get-property caption | equals "{abc}" 
+    | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

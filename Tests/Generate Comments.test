@@ -1,0 +1,46 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z5fh0C1lEeKgx4EWM9YkNw
+Element-Name: Generate Comments
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XB63wC1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:40 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select New Class;
+2. Check "Generate comments" option, click Finish;
+3. Make sure that /** has been generated. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-button "New Java Class" | click
+with [get-window "New Java Class"] {
+    get-editbox -after [get-label "Name:"] | set-focus
+    with [get-editbox -after [get-label "Package:"]] {
+        click
+        set-text "a."
+        show-content-assist
+        set-text "a.b.c"
+    }
+    with [get-editbox -after [get-label "Name:"]] {
+        click
+        set-text abc
+    }
+    get-button "Generate comments" | click
+    get-button Finish | click
+}
+
+get-editor "abc.java" | get-editbox | get-property text | contains "@author" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,45 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw
+Element-Name: Create New Java Package
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XATuMC1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:47 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Having an empty workspace click "New Java Package" button;
+2. Make sure "New Project" wizard is opened;
+3. Create new Java Project, click Finish and make sure that New Package wizard is opened;
+4. Name package and click Finish;
+5. Make sure that new Java Project and package have been created. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-button "New Java Package" | click
+get-window "New Element" | get-button Yes | click
+with [get-window "New Project"] {
+    get-tree | select "Java Project"
+    get-button "Next >" | click
+}
+with [get-window "New Java Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text MyProject
+    get-button Finish | click
+}
+with [get-window "New Java Package"] {
+    get-editbox -after [get-label "Name:"] | set-text p1
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyProject/src/p1" | get-property caption | equals p1 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

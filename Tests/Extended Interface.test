@@ -1,0 +1,51 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7By4C1lEeKgx4EWM9YkNw
+Element-Name: Extended Interface
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XByU4C1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:58 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select "New Interface";
+2. Set interface name = Int1 and click "Add" button to choose extended interface;
+3. Select MyInterface to extend;
+4. Click "Finish" button;
+5. Make sure that there is "public interface Int1 extends MyInterface" text in Int1.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/abc" | get-menu "New/Interface" | click
+with [get-window "New Java Interface"] {
+    get-editbox -after [get-label "Name:"] | set-text Int1
+    get-button "Add..." | click
+    with [get-window "Extended Interfaces Selection"] {
+        get-editbox -after [get-label "Choose interfaces:"] | set-text M
+        get-table | select MyInterface
+        get-editbox -after [get-label "Choose interfaces:"] | set-text My
+        get-table | select "MyInterface - abc"
+        get-button OK | click
+    }
+    with [get-table] {
+        select "abc.MyInterface" | activate-cell-edit
+        get-editbox | set-focus
+        apply-cell-edit
+    }
+    get-button Finish | click
+}
+get-editor "Int1.java" | get-editbox | get-property text | equals "package abc;\n\n"
+    + "public interface Int1 extends MyInterface {\n\n"
+    + "}" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

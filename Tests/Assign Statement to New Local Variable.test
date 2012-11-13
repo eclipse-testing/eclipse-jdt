@@ -1,0 +1,54 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7cpoC1lEeKgx4EWM9YkNw,_Z27WAC1lEeKgx4EWM9YkNw
+Element-Name: Assign Statement to New Local Variable
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _W_EYEC1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:42 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Instead of typing an assignment, start with the expression that will be assigned;
+2. Now use Ctrl+1 (Edit > Quick Fix) and choose 'Assign statement to new local variable' and Quick Assist will guess a variable name for you. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java" | double-click
+with [get-editor "Class1.java"] {
+    click
+    with [get-text-viewer] {
+        hover-text 6 16
+        set-caret-pos 5 5
+        type-text "sum()"
+        key-type Left
+        type-text "4,8"
+        key-type Right
+        type-text ";"
+        key-type "M1+1"
+        key-type Enter
+    }
+}
+get-editor "Class1.java" | get-editbox | get-property text | equals "public class Class1 {\n"
+    + "\t\n"
+    + "public static void main(String[] args) {\n"
+    + "\tint sum2 = sum(4,8);\n"
+    + "    int sum = sum(5,8);\n"
+    + "\tSystem.out.println(\"Sum = \" + sum);\n\n}\n\n"
+    + "public static int sum (int a, int b){\n"
+    + "\t\n"
+    + "\tint sum = a+b;\n"
+    + "\treturn sum;\n"
+    + "\t\n}\n"
+    + "}" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,38 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7tIUC1lEeKgx4EWM9YkNw
+Element-Name: Open Type Hierarchy
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XCuwEC1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:59 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select the method to look at and press F4 (Navigate > Open Type Hierarchy). This opens the Type Hierarchy view on the method's declaring type.
+2. With the method selected in the Type Hierarchy view, press the 'Lock View and Show Members in Hierarchy' tool bar button.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java/Class1" | double-click
+with [get-editor "Class1.java" | get-text-viewer] {
+    set-caret-pos 15 19
+    key-type F4
+}
+get-tab-folder | get-property activePage | equals "Type Hierarchy" | verify-true
+with [get-view "Type Hierarchy"] {
+    get-table | select "sum\\(int, int\\) : int"
+    //get-button "Lock View and Show Members in Hierarchy" | click
+}
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,44 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw
+Element-Name: Configure Project Layout
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _W_X6EC1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:42 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Choose New/Java Project;
+2. Select "Configure Defaults" in Project Layout section;
+3. Rename src to sources;
+4. Click Finish button;
+5. Make sure that "sources" folder has been created instead of "src".
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | get-menu "New/Java Project" | click
+with [get-window "New Java Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text MyProject
+    get-group "Project layout" | get-link "<a>Configure default...</a>" | click-link
+    with [get-window "Preferences (Filtered)"] {
+        get-group "Source and output folder" | get-editbox -after [get-label "Source folder name:"] | set-text sources
+        get-button Apply | click
+        get-button OK | click
+    }
+    get-button "Next >" | click
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyProject/sources" | get-property caption | equals sources 
+    | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,61 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7cpoC1lEeKgx4EWM9YkNw
+Element-Name: Add Remove Block Comment
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _W-7OIC1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:41 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Class1.java, select any text and choose Source/Add Block comment;
+2. Make sure that selected text block was commented with /*...*/;
+3. Select Source/Remove Block Comment;
+4. Make sure that /*..*/ were deleted. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java" | double-click
+with [get-editor "Class1.java" | get-text-viewer] {
+    set-caret-pos 11 2
+    select-range 11 1 16 2
+}
+get-menu "Source/Add Block Comment" | click
+get-editor "Class1.java" | get-editbox | get-property text | equals "public class Class1 {\n"
+    + "\t\n"
+    + "public static void main(String[] args) {\n"
+    + "\t\n"
+    + "    int sum = sum(5,8);\n"
+    + "\tSystem.out.println(\"Sum = \" + sum);\n\n}\n\n"
+    + "/*public static int sum (int a, int b){\n"
+    + "\t\n"
+    + "\tint sum = a+b;\n"
+    + "\treturn sum;\n"
+    + "\t\n"
+    + "}*/\n"
+    + "}" | verify-true
+get-menu "Source/Remove Block Comment" | click
+get-editor "Class1.java" | get-editbox | get-property text | equals "public class Class1 {\n"
+    + "\t\n"
+    + "public static void main(String[] args) {\n"
+    + "\t\n"
+    + "    int sum = sum(5,8);\n"
+    + "\tSystem.out.println(\"Sum = \" + sum);\n\n}\n\n"
+    + "public static int sum (int a, int b){\n"
+    + "\t\n"
+    + "\tint sum = a+b;\n"
+    + "\treturn sum;\n"
+    + "\t\n}\n"
+    + "}" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

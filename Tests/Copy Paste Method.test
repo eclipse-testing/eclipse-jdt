@@ -1,0 +1,57 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7cpoC1lEeKgx4EWM9YkNw
+Element-Name: Copy Paste Method
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _W_o_0C1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:43 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. In Package Explorer right-click sum method and select Copy;
+2. Paste it into Class1;
+3. Make sure there are "Duplicate method" error in Problems view.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Package Explorer" | get-tree] {
+    select "MyProject/src/\\(default package\\)/Class1.java/Class1/sum\\(int, int\\) : int" | get-menu Copy | click
+    select "MyProject/src/\\(default package\\)/Class1.java/Class1" | get-menu Paste | click
+    select "MyProject/src/\\(default package\\)/Class1.java/Class1" | double-click
+}
+get-editor "Class1.java" | get-editbox | get-property text | equals "public class Class1 {\n"
+    + "\t\n"
+    + "public static void main(String[] args) {\n"
+    + "\t\n"
+    + "    int sum = sum(5,8);\n"
+    + "\tSystem.out.println(\"Sum = \" + sum);\n\n}\n\n"
+    + "public static int sum (int a, int b){\n"
+    + "\t\n"
+    + "\tint sum = a+b;\n"
+    + "\treturn sum;\n"
+    + "\t\n}\n\n"
+    + "public static int sum (int a, int b){\n"
+    + "\t\n"
+    + "\tint sum = a+b;\n"
+    + "\treturn sum;\n"
+    + "\t\n}\n"
+    + "}" | verify-true
+get-view Problems | get-tree | get-property itemCount | equals 1 | verify-true
+with [get-view Problems | get-tree] {
+    get-item "Errors \\(2 items\\)/Duplicate method sum\\(int, int\\) in type Class1" | get-property caption 
+        | equals "Duplicate method sum(int, int) in type Class1" | verify-true
+    get-item "Errors \\(2 items\\)" | get-item "Duplicate method sum\\(int, int\\) in type Class1" -index 1 
+        | get-property caption | equals "Duplicate method sum(int, int) in type Class1" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,63 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw
+Element-Name: Use Quick Fix to Create New Method
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XEEz4C1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:40 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Start with the method invocation and use Quick Fix (Ctrl+1) to create the method.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java" | double-click
+with [get-editor "Class1.java"] {
+    click
+    with [get-text-viewer] {
+        set-caret-pos 3 1
+        type-text "public static void main()"
+        key-type Left
+        type-text "String[] args"
+        key-type Right
+        type-text "{"
+        key-type Enter
+        type-text "int a,b,x;"
+        key-type Enter
+        type-text "a=5;"
+        key-type Enter
+        type-text "b=8;"
+        key-type Enter
+        type-text "x=getSum()"
+        key-type Left
+        type-text "a,b"
+        key-type Right
+        type-text ";"
+        key-type Left -times 6
+        key-type "M1+1"
+        key-type Enter
+    }
+}
+get-editor "Class1.java" | get-editbox | get-property text | equals "public class Class1 {\n"
+    + "public static void main(String[] args){\n"
+    + "\tint a,b,x;\n"
+    + "\ta=5;\n"
+    + "\tb=8;\n"
+    + "\tx=getSum(a,b);\n}\n\n"
+    + "private static int getSum(int a, int b) {\n"
+    + "\t// TODO Auto-generated method stub\n"
+    + "\treturn 0;\n}\n"
+    + "}" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

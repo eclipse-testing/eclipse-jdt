@@ -1,0 +1,53 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Context-Type: com.xored.q7.workspace.context
+Element-Name: ClassWithConstructor
+Element-Type: context
+Element-Version: 2.0
+Id: _Z2ROsC1lEeKgx4EWM9YkNw
+Save-Time: 11/13/12 2:40 PM
+
+------=_contents/MyProject/.classpath-f924a8ee-8eb0-396a-a8f7-53d260adf63c
+Content-Type: q7/binary
+Entry-Name: contents/MyProject/.classpath
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSzsa/IzVEoSy0qzszPs1Uy1DNQUkjN
+S85PycxLt1UKDXHTtVCyt+PlsknOSSwuLkgsyQByOBG81LySokqF7My8FFul4qJkJQWQIISpj1tlcn4e
+TGV+UbpeanJOZkFxql5WSoleTmJpXnIG0HY9ryDXeGd/vxBHTz/XIHym5ZeWFJSWwAxMyswDK7bRR3Yy
+AFBLBwj1M9tAjwAAAOgAAABQSwECFAAUAAgICAAAACEA9TPbQI8AAADoAAAACAAAAAAAAAAAAAAAAAAA
+AAAALmNvbnRlbnRQSwUGAAAAAAEAAQA2AAAAxQAAAAAA
+------=_contents/MyProject/.classpath-f924a8ee-8eb0-396a-a8f7-53d260adf63c--
+------=_contents/MyProject/src/abc/ParentClass.java-1b90dd33-be94-33ad-a7a7-b30fcc3ac21d
+Content-Type: q7/binary
+Entry-Name: contents/MyProject/src/abc/ParentClass.java
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnQrSEzOTkxPVUhMSrbm5eLlKihNyslM
+VkjOSSwuVghILErNK3EGs6tBspxQaSQJjcy8EoVEHYXgkqLMvHSFJE2QSk7ORAVbBUtrECsJyFLySM3J
+yVdUAgnUggwCEgBQSwcIb0cmr10AAAB6AAAAUEsBAhQAFAAICAgAAAAhAG9HJq9dAAAAegAAAAgAAAAA
+AAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAJMAAAAAAA==
+------=_contents/MyProject/src/abc/ParentClass.java-1b90dd33-be94-33ad-a7a7-b30fcc3ac21d--
+------=_contents/MyProject/.project-db7607a0-e356-3aa3-a20e-b3efc9871b2e
+Content-Type: q7/binary
+Entry-Name: contents/MyProject/.project
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnR1kL0OwiAUhWdNfIeGXdDNgbaDxs3E
+RH0ApDcNTYEGaKNvL1BqUxO3+537cw7Q8iXbbABjhVY52uMdykBxXQlV5+hxP28PqCw2a9oZ3QB3J7Dc
+iM75aa+uqGISisv7OnYpiRwaXEsJyhWUTFVQ0xUbgSzo2Yu2unXAAyU8+lWmqqgkL21qDLwVnQXcVA5z
+bXzBBhYXwMwR/AYzdR+8bWKyFCj5dUnKFMNbut5Amh7hf4KxHwLEuXhuPvB97vILP1BLBwi9AkYRvwAA
+AIEBAABQSwECFAAUAAgICAAAACEAvQJGEb8AAACBAQAACAAAAAAAAAAAAAAAAAAAAAAALmNvbnRlbnRQ
+SwUGAAAAAAEAAQA2AAAA9QAAAAAA
+------=_contents/MyProject/.project-db7607a0-e356-3aa3-a20e-b3efc9871b2e--
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf
+Content-Type: q7/binary
+Entry-Name: .q7.content
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSNUstOwzAQvCPxD5bv2LRCKkQJPUQ9
+IBSouAR6QcZxHq1jp7bbhL9n0+ZBC0jcdnfGM7sj+/OmlGgvjC20CvCEXGMkFNdJobIA71x6dYvn95cX
+PtclabQRCdnOSK3NxlaMCy/uq1ArJxqHmrLwBrlpKwcGynowD3DuXOVRWtc10WVGtMnoa/TQU363GF5R
+wOkBp9sZHXAiOMwwUqwEbiiZtXHhctjHOrPjThuMiiTA76vpy7MNJ3IhHrPmZhFHd2+bpxojLgUz8WiX
+MmkFhpsRgqvhKuUODbSV0WvBne3Mos/lcYA7AlDSQooeJ7zdpmIux/QPRqd4gmuZQIAdwxo+qv9A2ccJ
+eqa+ZAaWP0RC1mzPvrkAk3ZSo/PZxKf9vccw6JhGW//rPwD3C1BLBwhuHN41KwEAAGMCAABQSwECFAAU
+AAgICAAAACEAbhzeNSsBAABjAgAACAAAAAAAAAAAAAAAAAAAAAAALmNvbnRlbnRQSwUGAAAAAAEAAQA2
+AAAAYQEAAAAA
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf--
