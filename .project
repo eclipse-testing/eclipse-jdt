@@ -3,6 +3,7 @@
 	<name>E4 JDT Tests</name>
 	<comment></comment>
 	<projects>
+		<project>E4 Platform Tests</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
