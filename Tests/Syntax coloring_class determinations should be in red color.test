@@ -1,0 +1,24 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7cpoC1lEeKgx4EWM9YkNw
+Element-Name: Syntax coloring_class determinations should be in red color
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6hD2cC_BEeK8x-jSBDzgRw
+Save-Time: 11/16/12 2:49 PM
+Tags: JDT
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java" | double-click
+with [get-editor "Class1.java" | get-editbox] {
+    get-property "getStyleRanges().StyleRange[1].start" | equals 2 | verify-true
+    get-property "getStyleRanges().StyleRange[1].length" | equals 6 | verify-true
+    get-property "getStyleRanges().StyleRange[1].foreground" | equals "#7F0055" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

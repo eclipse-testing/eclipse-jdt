@@ -1,0 +1,30 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7cpoC1lEeKgx4EWM9YkNw
+Element-Name: Syntax coloring _ constants should be in blue color
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _Oz42cC_CEeK8x-jSBDzgRw
+Save-Time: 11/16/12 2:51 PM
+Testcase-Type: ecl
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java/Class1" | double-click
+with [get-editor "Class1.java" | get-text-viewer] {
+    hover-text 7 8
+    set-caret-pos 18 1
+    type-text "\"\""
+    key-type Left
+    type-text constant
+}
+with [get-editor "Class1.java" | get-editbox] {
+    get-property "getStyleRanges().StyleRange[33].start" | equals 225 | verify-true
+    get-property "getStyleRanges().StyleRange[33].length" | equals 10 | verify-true
+    get-property "getStyleRanges().StyleRange[33].foreground" | equals "#2A00FF" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
