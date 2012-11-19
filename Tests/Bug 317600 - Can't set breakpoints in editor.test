@@ -1,0 +1,37 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7cpoC1lEeKgx4EWM9YkNw
+Element-Name: Bug 317600 - Can't set breakpoints in editor
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _FH2ZUTIPEeKuaoPIIAkhPg
+Save-Time: 11/19/12 1:07 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Class1;
+2. Double-click the bar area - make sure that Breakpoint was set.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java" | double-click
+with [get-editor "Class1.java"] {
+    with [get-left-ruler] {
+        get-ruler-column AnnotationColumn | double-click-ruler 6
+        hover-ruler -line 6
+    }
+    get-text-viewer | key-type "M1+3"
+}
+get-editbox -index 1 | set-text breakpoints
+get-window -from "SearchField.createWidget()" | get-table | select Views
+get-view Breakpoints | get-tree | get-property itemCount | equals 1 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
