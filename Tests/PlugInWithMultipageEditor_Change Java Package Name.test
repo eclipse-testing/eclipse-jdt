@@ -1,0 +1,50 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw
+Element-Name: PlugInWithMultipageEditor_Change Java Package Name
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _PGsUEDLrEeK0utYbRJbZ1g
+Save-Time: 11/20/12 3:23 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select New to create plug-in project with Multipage Editor;
+2. Navigate to Sample Multi-page editor page and change Java Package Name;
+3. Click Finish;
+4. Make sure that package name was created according to your changes. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | get-menu "New/Project..." | click
+with [get-window "New Project"] {
+    get-tree | select "Plug-in Project"
+    get-button "Next >" | click
+}
+with [get-window "New Plug-in Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text MyProject
+    with [get-button "Next >"] {
+        click
+        click
+    }
+    get-table | select "Plug-in with a multi-page editor"
+    get-button "Next >" | click
+}
+with [get-window "New plug-in project with a multi-page editor"] {
+    get-editbox -after [get-label "Java Package Name:"] | set-text "qqq.editors"
+    get-button "Next >" | click
+    get-button Finish | click
+}
+get-window "Open Associated Perspective?" | get-button No | click
+get-view "Package Explorer" | get-tree | get-item "MyProject/src/qqq.editors" | get-property caption 
+    | equals "qqq.editors" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
