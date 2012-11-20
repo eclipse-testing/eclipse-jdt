@@ -1,0 +1,58 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw
+Element-Name: Create New Hello World Project
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _FJ9WgDItEeKuaoPIIAkhPg
+Save-Time: 11/20/12 1:00 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select New/Project/Plug-in project;
+2. Choose HelloWorld template;
+3. Make sure that Hello World project has been created correctly and has Activator and SampleAction classes. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | get-menu "New/Project..." | click
+with [get-window "New Project"] {
+    get-tree | select "Plug-in Project"
+    get-button "Next >" | click
+}
+with [get-window "New Plug-in Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text HelloWorldProject
+    with [get-button "Next >"] {
+        click
+        click
+    }
+    get-table | select "Hello, World"
+    get-button "Next >" | click
+}
+get-window "New Hello World plug-in project" | get-button Finish | click
+get-window "Open Associated Perspective?" | get-button No | click
+with [get-view "Package Explorer" | get-tree] {
+    get-property itemCount | equals 1 | verify-true
+    get-item HelloWorldProject | get-property caption | equals HelloWorldProject | verify-true
+}
+with [get-view "Package Explorer" | get-tree] {
+    get-item "HelloWorldProject/src/helloworldproject" | get-property caption | equals helloworldproject | verify-true
+    get-item "HelloWorldProject/src/helloworldproject.actions" | get-property caption 
+        | equals "helloworldproject.actions" | verify-true
+}
+with [get-view "Package Explorer" | get-tree] {
+    get-item "HelloWorldProject/src/helloworldproject/Activator.java" | get-property caption | equals "Activator.java" 
+        | verify-true
+    get-item "HelloWorldProject/src/helloworldproject.actions/SampleAction.java" | get-property caption 
+        | equals "SampleAction.java" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
