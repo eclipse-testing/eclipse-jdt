@@ -1,0 +1,48 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g
+Element-Name: PlugInWithPropertyPage_Change Property Page Name
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _CZp9gDOrEeKWyKj1hZOy8A
+Save-Time: 11/21/12 2:15 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select New to create plug-in project with Property Page;
+2. Navigate to Sample property page and change Property Page Name;
+3. Click Finish;
+4. Make sure that property page name was created according to your changes. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | get-menu "New/Plug-in Project" | click
+with [get-window "New Plug-in Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text MyProject
+    with [get-button "Next >"] {
+        click
+        click
+    }
+    get-table | select "Plug-in with a property page"
+    get-button "Next >" | click
+}
+with [get-window "New plug-in project with a property page"] {
+    get-editbox -after [get-label "Property Page Name:"] | set-text qqq
+    get-button Finish | click
+}
+with [get-editor MyProject] {
+    get-section "General Information" | get-editbox -after [get-label "ID:"] | set-focus
+    get-button "Show List" | click
+    get-tab-folder | get-tab-item "plugin.xml" | click
+}
+get-editor MyProject | get-editbox | get-property text | contains "name=\"qqq\"" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
