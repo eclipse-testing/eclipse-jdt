@@ -1,0 +1,58 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g
+Element-Name: RichClientApplication_HelloRCP_Add Branding
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _Vs_RcDVCEeK2lKowMm2KiQ
+Save-Time: 11/23/12 2:51 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select New to create plug-in project;
+2. Select Yes to create Rich Client Application ;
+3. Select HelloRCP template;
+4. Navigate to Basic RCP application page and select "Add branding";
+5. Click Finish;
+6. Make sure that .bmp file has been generated. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | get-menu "New/Plug-in Project" | click
+with [get-window "New Plug-in Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text MyProject
+    get-button "Next >" | click
+    get-group "Rich Client Application" | get-button Yes | click
+    get-button "Next >" | click
+    get-table | select "Hello RCP"
+    get-button "Next >" | click
+}
+with [get-window "New Hello RCP Project"] {
+    get-button "Add branding" | click
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyProject/splash.bmp" | get-property caption | equals "splash.bmp" 
+    | verify-true
+get-view "Package Explorer" | get-tree | get-menu "New/Plug-in Project" | click
+with [get-window "New Plug-in Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text MyProject2
+    with [get-button "Next >"] {
+        click
+        click
+    }
+    get-table | select "Hello RCP"
+    get-button "Next >" | click
+}
+get-window "New Hello RCP Project" | get-button "Add branding" | get-property selected | equals false | verify-true
+get-window "New Hello RCP Project" | get-button Finish | click
+get-view "Package Explorer" | get-tree | verify-error{get-item "MyProject2/splash.bmp"}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,51 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g
+Element-Name: RichClientApplication_HelloRCP_Change Window Title
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _2hRRwTVAEeK2lKowMm2KiQ
+Save-Time: 11/23/12 2:45 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select New to create plug-in project;
+2. Select Yes to create Rich Client Application ;
+3. Select HelloRCP template;
+4. Navigate to Basic RCP application page and change Application window title;
+5. Click Finish;
+6. Make sure that project was created according to your changes. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | get-menu "New/Plug-in Project" | click
+with [get-window "New Plug-in Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text MyProject
+    with [get-button "Next >"] {
+        click
+        click
+    }
+    get-button "< Back" | click
+    get-group "Rich Client Application" | get-button Yes | click
+    get-button "Next >" | click
+    get-table | select "Hello RCP"
+    get-button "Next >" | click
+}
+with [get-window "New Hello RCP Project"] {
+    get-editbox -after [get-label "Application window title:"] | set-text qqq
+    get-button Finish | click
+}
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/myproject/ApplicationWorkbenchWindowAdvisor.java" 
+    | double-click
+get-editor "ApplicationWorkbenchWindowAdvisor.java" | get-editbox | get-property text | contains "        configurer.setTitle(\"qqq\"); //$NON-NLS-1$\n" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
