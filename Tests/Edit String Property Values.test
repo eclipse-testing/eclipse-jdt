@@ -1,0 +1,53 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g,_d79gADedEeKagI90zyK_pw
+Element-Name: Edit String Property Values
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _7gULMDecEeKagI90zyK_pw
+Save-Time: 11/26/12 2:49 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select String property in component definition and click "Edit" button;
+2. Change property name and values and click OK;
+3. Make sure that your changes has been saved. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyFeatureProject/component.xml" | double-click
+with [get-editor "component.xml" | get-section "Properties (9)"] {
+    get-table -index 1 | select stringProperty
+    get-button "Edit..." -index 1 | click
+}
+with [get-window -from "Window.createShell()"] {
+    get-editbox -after [get-label "Name*:"] | set-text stringProperty2
+    get-editbox -after [get-label "Values:"] | set-text qqq
+    get-button OK | click
+}
+get-editor "component.xml" | get-section "Properties (9)" | get-button "Edit..." -index 1 | key-type "M1+s"
+get-editor "component.xml" | get-section "Properties (9)" | get-table -index 1 | get-item stringProperty2 
+    | get-property caption | equals stringProperty2 | verify-true
+get-editor "component.xml" | get-tab-folder | get-tab-item Source | click
+get-view Outline | get-tree | get-item "Component Definition/stringProperty2" | get-property caption 
+    | equals stringProperty2 | verify-true
+with [get-editor "component.xml"] {
+    get-tab-folder | get-tab-item Overview | click
+    with [get-section "Properties (9)"] {
+        get-table -index 1 | select stringProperty2
+        get-button "Edit..." -index 1 | click
+    }
+}
+get-window -from "Window.createShell()" | get-editbox -after [get-label "Name*:"] | set-focus
+get-window -from "Window.createShell()" | get-editbox -after [get-label "Values:"] | get-property text | equals qqq 
+    | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

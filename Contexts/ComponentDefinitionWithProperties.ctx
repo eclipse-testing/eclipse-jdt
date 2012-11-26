@@ -1,0 +1,66 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Context-Type: com.xored.q7.workspace.context
+Element-Name: ComponentDefinitionWithProperties
+Element-Type: context
+Element-Version: 2.0
+Id: _d79gADedEeKagI90zyK_pw
+Save-Time: 11/26/12 2:47 PM
+
+------=_contents/MyFeatureProject/feature.xml-88b32fe5-a9d5-37bf-9286-a62326a9e9dd
+Content-Type: q7/binary
+Entry-Name: contents/MyFeatureProject/feature.xml
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnR90b0OgjAUBeCdxHdougu6GQM6+DNp
+4qCTccBykZrS4qWIvL0VakNipJ3annO/oeHylQvyBCy5khGd+hNKQDKVcHmL6Om4Hc/ocjHywhRiXSGM
+PNIunkR032y7ywOqOzBNv48ivoIYeO9zZj+qWPCUA1IDtZkwgZIhL7RJkQrNrEzrYh4EdV378IrzQoDP
+VB70cp9yN/68kRqQWJyse7MyQPAvndEvO5ipokF+y/Qg61I/6Mr1/7Ku7FDBGcgSBkmb+QF3tvuXs8UW
+CwP7jeb0BlBLBwiC/HAi0QAAAPoBAABQSwECFAAUAAgICAAAACEAgvxwItEAAAD6AQAACAAAAAAAAAAA
+AAAAAAAAAAAALmNvbnRlbnRQSwUGAAAAAAEAAQA2AAAABwEAAAAA
+------=_contents/MyFeatureProject/feature.xml-88b32fe5-a9d5-37bf-9286-a62326a9e9dd--
+------=_contents/MyFeatureProject/component.xml-18238998-d0cf-3fcc-9696-088ff51bab22
+Content-Type: q7/binary
+Entry-Name: contents/MyFeatureProject/component.xml
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSNkt9qwjAUh+8LvkPI/ZrVP5uTVmGK
+MNjFwO0BYj3WQJpTk6jz7XesWrRdwauQ7+T39Zwm8eQ312wP1ik0CY/CZ87ApLhSJkv4z/f8acgn404Q
+u9SOUswLNGA8o5BxI2IJ33hfjIQ4HA4hukyFaDNRlgWVxT4KS6eROSR8WglmsFZGefooJztjLFZ5oSGn
+mjxRlmrp3E2Ci8u5wmIB1h8vSucttfp1gZz5Y0F0UVI+3m63nYBa6wQAcM6Lq+B/3xJRgzR14fsZ87G3
+OxKtpXYP+o4eGjJinO2l3tEm6raNlm6klakHW89Pr4VKUi5tnhXulrrRxKyklaEXRv02wVqj9PX8/AQf
+iivjIWtO8XHGlaI7aDVobF7xJ7Gbn9jrD15eh2+tz2SDtjHC4gQrR39A4SAWdy+dbH9QSwcIJ/3rQzgB
+AAAjAwAAUEsBAhQAFAAICAgAAAAhACf960M4AQAAIwMAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50
+UEsFBgAAAAABAAEANgAAAG4BAAAAAA==
+------=_contents/MyFeatureProject/component.xml-18238998-d0cf-3fcc-9696-088ff51bab22--
+------=_contents/MyFeatureProject/build.properties-b00054a9-e1df-3aba-93a4-ecae11624588
+Content-Type: q7/binary
+Entry-Name: contents/MyFeatureProject/build.properties
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnRLyszTy8xLzilNSS1WsFVIS00sKS1K
+1avIzeHlAgBQSwcI43sDnh4AAAAcAAAAUEsBAhQAFAAICAgAAAAhAON7A54eAAAAHAAAAAgAAAAAAAAA
+AAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAFQAAAAAAA==
+------=_contents/MyFeatureProject/build.properties-b00054a9-e1df-3aba-93a4-ecae11624588--
+------=_contents/MyFeatureProject/.project-cc24e01e-6612-35ff-b428-f5b29b54c5ab
+Content-Type: q7/binary
+Entry-Name: contents/MyFeatureProject/.project
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnStkdEKwiAUhq8Leoex+7TuunAbVOyu
+CKoH2PQwjE1Ft6i3T51rjAi66Eb8f3/Pd46S7NHU0R204VIk8Rqt4ggElYyLKomvl3y5ibN0MSdKyxvQ
+dg+Gaq5am7bujIiigfTwzKFoOw2nPkSwt905lU0Dok0JHnbODcWMF3iiyo7X7KyAOhXkzl4tBPNOQEpd
+IaA1VwaQYoBCA1sXBz02YPOFrjpHNkHjqUHwB+NnKjOISg2o/Ac2OMPslugmCulefBv76FeH9ylfbLz+
+fuHp570AUEsHCIr8WlXQAAAA+wEAAFBLAQIUABQACAgIAAAAIQCK/FpV0AAAAPsBAAAIAAAAAAAAAAAA
+AAAAAAAAAAAuY29udGVudFBLBQYAAAAAAQABADYAAAAGAQAAAAA=
+------=_contents/MyFeatureProject/.project-cc24e01e-6612-35ff-b428-f5b29b54c5ab--
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf
+Content-Type: q7/binary
+Entry-Name: .q7.content
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSNkU1vwjAMhu+T9h+i3JewXToqOjTB
+JiGExK27oZK6JVvzQZquZb9+Lv1Ak0DaLbYf+33tzOaNKsg3uFIaHdFHNqEEtDCp1HlEK589PNP5y/3d
+TBjFGuMgZceA1cZ9lTYREMbDa2G0h8aTRslwHPfUjkMBXYaYj+jBextyXtc1MypnxuX8Y7MakOsSYxfH
+Oj/X+THgY52BwBwlOlHILoyyRoP2S8iklh5txNIfts5YcF5CSYlMI7pLg2n+uoT0DdZJvppOfk7rna0p
+EQUkLr5oZ0lRAsUDEIInwBW1PwcYWmc+QfiyV96c3iHxlYNtl6c9h2QmCxgw1rdRfr2+r2SRttDg9wYn
+hkUZHu8WlHWO/iAzPhjvtuKXtdr3v34Z2V9QSwcIWbYGwSABAAA5AgAAUEsBAhQAFAAICAgAAAAhAFm2
+BsEgAQAAOQIAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAFYBAAAAAA==
+
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf--

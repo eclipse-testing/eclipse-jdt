@@ -1,0 +1,50 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g,_3uxBoDebEeKagI90zyK_pw
+Element-Name: Add File To Component Definition
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _zjIHoTebEeKagI90zyK_pw
+Save-Time: 11/26/12 2:38 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Component definition;
+2. Press Add File button to add a file;
+3. Make sure that file has been added. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyFeatureProject | get-menu "New/File" | click
+with [get-window "New File"] {
+    get-editbox -after [get-label "File name:"] | set-text File1
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | select "MyFeatureProject/component.xml" | double-click
+with [get-editor "component.xml"] {
+    with [get-tab-folder] {
+        get-tab-item Services | click
+        get-tab-item Overview | click
+    }
+    get-section Component | get-editbox -after [get-label "Name:"] | set-focus
+    get-section "Properties (0)" | get-button "Add File..." -index 1 | click
+}
+with [get-window Resource] {
+    get-tree | select "MyFeatureProject/File1"
+    get-button OK | click
+}
+get-editor "component.xml" | get-section "Properties (1)" | get-table -index 1 | get-property itemCount | equals 1 
+    | verify-true
+get-editor "component.xml" | get-section "Properties (1)" | get-table -index 1 | select File1
+get-editor "component.xml" | get-section "Properties (1)" | get-table -index 1 | get-item File1 | get-property caption 
+    | equals File1 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
