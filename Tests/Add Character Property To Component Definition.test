@@ -1,0 +1,40 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g,_3uxBoDebEeKagI90zyK_pw
+Element-Name: Add Character Property To Component Definition
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _oFMjYDepEeKagI90zyK_pw
+Save-Time: 11/26/12 4:15 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Component Definition and press "Add Property" button to add Character property;
+2. Set char values and press OK;
+3. Open Source tab and verify that property with values has been added. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyFeatureProject/component.xml" | double-click
+get-editor "component.xml" | get-section "Properties (0)" | get-button "Add Property..." -index 1 | click
+with [get-window -from "Window.createShell()"] {
+    get-editbox -after [get-label "Name*:"] | set-focus
+    get-combo -after [get-label "Type:"] | set-text Character
+    get-button OK | click
+}
+with [get-editor "component.xml" | get-section "Properties (1)" | get-table -index 1] {
+    get-property itemCount | equals 1 | verify-true
+    get-item property1 | get-property caption | equals property1 | verify-true
+}
+get-editor "component.xml" | get-tab-folder | get-tab-item Source | click
+get-editor "component.xml" | get-editbox | get-property text | contains "   <property name=\"property1\" type=\"Character\" value=\"value\"/>\n"| verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

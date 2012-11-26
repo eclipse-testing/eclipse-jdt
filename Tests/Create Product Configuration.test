@@ -1,0 +1,35 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g,_LEBSADePEeKmOu1iJSfk-g
+Element-Name: Create Product Configuration
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _nI6lgDeiEeKagI90zyK_pw
+Save-Time: 11/26/12 3:29 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click feature project and select New/Product Configuration;
+2. Set configuration name and click "Finish";
+3. Make sure that .product file is created. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyFeatureProject | get-menu "New/Product Configuration" | click
+with [get-window "New Product Configuration"] {
+    get-editbox -after [get-label "File name:"] | set-text "qqq.product"
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyFeatureProject/qqq.product" | get-property caption 
+    | equals "qqq.product" | verify-true
+get-tab-folder -index 1 | get-property activePage | equals "qqq.product" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
