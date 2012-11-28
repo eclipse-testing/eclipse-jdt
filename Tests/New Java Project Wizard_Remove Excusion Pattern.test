@@ -1,0 +1,59 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw
+Element-Name: New Java Project Wizard_Remove Excusion Pattern
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6w8vYDk_EeKagI90zyK_pw
+Save-Time: 11/28/12 4:44 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open New Java Project Wizard;
+2. Add 3 exclusion patterns for scr folder;
+3. Select one and press Remove button;
+4. Make sure that pattern was removed. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | get-menu "New/Java Project" | click
+with [get-window "New Java Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text Project1
+    get-button "Next >" | click
+    get-tree | select "Project1/src"
+    get-button "Configure Inclusion / Exclusion Filters" | click
+}
+with [get-window "Inclusion and Exclusion Patterns"] {
+    get-button "Add..." -after [get-label "Exclusion patterns:"] | click
+    with [get-window "Add Exclusion Pattern"] {
+        get-editbox -after [get-label "Exclusion pattern (Path relative to \'Project1/src\'):"] | set-text "a*"
+        get-button OK | click
+    }
+    get-button "Add..." -after [get-label "Exclusion patterns:"] | click
+    with [get-window "Add Exclusion Pattern"] {
+        get-editbox -after [get-label "Exclusion pattern (Path relative to \'Project1/src\'):"] | set-text "b*"
+        get-button OK | click
+    }
+    get-button "Add..." -after [get-label "Exclusion patterns:"] | click
+    with [get-window "Add Exclusion Pattern"] {
+        get-editbox -after [get-label "Exclusion pattern (Path relative to \'Project1/src\'):"] | set-text "c*"
+        get-button OK | click
+    }
+    get-table -after [get-label "Exclusion patterns:"] | select "b\\*"
+    get-button Remove -after [get-label "Exclusion patterns:"] | click
+}
+with [get-window "Inclusion and Exclusion Patterns" | get-table -after [get-label "Exclusion patterns:"]] {
+    get-property itemCount | equals 2 | verify-true
+    get-item "a\\*" | get-property caption | equals "a*" | verify-true
+    get-item "c\\*" | get-property caption | equals "c*" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

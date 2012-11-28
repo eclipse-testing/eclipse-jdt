@@ -1,0 +1,37 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw
+Element-Name: Remove Source Folder From Build Path
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _bqGooDk-EeKagI90zyK_pw
+Save-Time: 11/28/12 4:33 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click src folder and select "Remove From Build Path";
+2. Make sure that Class1.java and Class2.java are not in build path anymore;
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Package Explorer" | get-tree] {
+    get-item "MyProject/src/\\(default package\\)/Class1.java" | get-property caption | equals "Class1.java" 
+        | verify-true
+    get-item "MyProject/src/\\(default package\\)/Class2.java" | get-property caption | equals "Class2.java" 
+        | verify-true
+}
+get-view "Package Explorer" | get-tree | select "MyProject/src" | get-menu "Build Path/Remove from Build Path" | click
+with [get-view "Package Explorer" | get-tree] {
+    get-item "MyProject/src/Class1.java" | get-property caption | equals "Class1.java" | verify-true
+    get-item "MyProject/src/Class2.java" | get-property caption | equals "Class2.java" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
