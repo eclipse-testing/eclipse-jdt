@@ -1,0 +1,60 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Ence0Dq-EeKNqPSkY0DPCQ
+Element-Name: New Java Class Wizard_Configure Variable_Edit_Folder
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _xOuVoDrIEeKNqPSkY0DPCQ
+Save-Time: 11/30/12 3:37 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open New Java Project Wizard;
+2. On a 2nd page select Libraries tab;
+3. Press Add Variable button;
+4. Select any variable;
+5. Press Configure Variable button;
+6. Press Edit button;
+7. Press Folder button - navigate to variable folder;
+8. Make sure that variable was changed and added.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "New/Java Project" | click
+with [get-window "New Java Project"] {
+    get-editbox -after [get-label "Project name:"] | set-text Pp
+    get-button "Next >" | click
+    get-tab-folder | get-tab-item Libraries | click
+    get-button "Add Variable..." | click
+    with [get-window "New Variable Classpath Entry"] {
+        get-table | select "JRE_SRC - .*"
+        get-button "Configure Variables..." | click
+        with [get-window "Preferences (Filtered)"] {
+            get-table | select "JRE_SRC - .*"
+            get-button "Edit..." | click
+        }
+    }
+}
+set-dialog-result Folder "platform:/resource/MyProject"
+with [get-window "New Java Project" | get-window "New Variable Classpath Entry"] {
+    with [get-window "Preferences (Filtered)"] {
+        with [get-window "Edit Variable Entry"] {
+            get-button "Folder..." | click
+            get-button OK | click
+        }
+        get-button OK | click
+    }
+    get-button OK | click
+}
+get-window "New Java Project" | get-tree | get-item "JRE_SRC - .*MyProject" 
+    | get-property caption | equals "JRE_SRC - .*MyProject" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
