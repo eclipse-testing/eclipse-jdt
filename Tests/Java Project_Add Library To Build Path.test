@@ -7,7 +7,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _hbz1QD3jEeKNqPSkY0DPCQ
-Save-Time: 12/4/12 2:26 PM
+Save-Time: 12/4/12 4:34 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -41,6 +41,7 @@ with [get-window "Add Library"] {
     get-button Finish | click
 }
 get-view "Package Explorer" | get-tree | select JavaProject2 | get-menu Properties | click
+get-window "Properties for JavaProject2" | get-tree | select "Java Build Path"
 get-window "Properties for JavaProject2" | get-tab-folder | get-tab-item Libraries | click
 get-window "Properties for JavaProject2" | get-tree -after [get-label "JARs and class folders on the build path:"] 
     | get-item qqq | get-property caption | equals qqq | verify-true

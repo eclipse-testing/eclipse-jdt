@@ -1,0 +1,39 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_PNM7oDeUEeKmOu1iJSfk-g,_l4VYgDLuEeK0utYbRJbZ1g
+Element-Name: Create New Category Definition
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _DgiL8D3xEeKNqPSkY0DPCQ
+Save-Time: 12/4/12 4:33 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click plugin project and select New/Plugin Development/Category Definition;
+2. Set Category Definition name and click Finish;
+3. Make sure that category definition xml file has been created. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select PluginProject | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Plug-in Development/Category Definition"
+    get-button "Next >" | click
+}
+with [get-window "New Category Definition"] {
+    get-editbox -after [get-label "File name:"] | set-text "CatDef1.xml"
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "PluginProject/CatDef1.xml" | get-property caption 
+    | equals "CatDef1.xml" | verify-true
+get-tab-folder -index 1 | get-property activePage | equals "CatDef1.xml" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
