@@ -1,0 +1,47 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_flweID3ZEeKNqPSkY0DPCQ
+Element-Name: Java Project_Add Library To Build Path
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _hbz1QD3jEeKNqPSkY0DPCQ
+Save-Time: 12/4/12 2:26 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click Java Project and select "Build Path/Add Libraries";
+2. Select "User Library";
+3. Add New library and press Finish;
+4. Make sure that user library has been added to build path.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select JavaProject2 | get-menu "Build Path/Add Libraries..." | click
+with [get-window "Add Library"] {
+    get-list | select "User Library"
+    get-button "Next >" | click
+    get-button "User Libraries..." | click
+    with [get-window "Preferences (Filtered)"] {
+        get-button "New..." | click
+        with [get-window "New User Library"] {
+            get-editbox -after [get-label "User library name:"] | set-text qqq
+            get-button OK | click
+        }
+        get-button OK | click
+    }
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | select JavaProject2 | get-menu Properties | click
+get-window "Properties for JavaProject2" | get-tab-folder | get-tab-item Libraries | click
+get-window "Properties for JavaProject2" | get-tree -after [get-label "JARs and class folders on the build path:"] 
+    | get-item qqq | get-property caption | equals qqq | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

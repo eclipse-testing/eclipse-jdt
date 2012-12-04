@@ -1,0 +1,53 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw
+Element-Name: Java Project_Add New Source Folder_Add Inclusion Pattern
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _bp9aID3dEeKNqPSkY0DPCQ
+Save-Time: 12/4/12 1:43 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click Java Project and select "Build Path/New Source Folder";
+2. Set folder name and click Next button;
+3. Add Inclusion pattern and press Finish;
+4. Create new class in new source folder and make sure that filter works. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "Build Path/New Source Folder..." | click
+with [get-window "New Source Folder"] {
+    get-editbox -after [get-label "Folder name:"] | set-text qqq
+    get-button "Next >" | click
+    get-button "Add..." | click
+    with [get-window "Add Inclusion Pattern"] {
+        get-editbox -after [get-label "Inclusion pattern (Path relative to \'MyProject/qqq\'):"] | set-text "a*"
+        get-button OK | click
+    }
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | select "MyProject/qqq" | get-menu "New/Class" | click
+with [get-window "New Java Class"] {
+    get-editbox -after [get-label "Name:"] | set-text bb
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyProject/qqq/bb.java" | get-property caption | equals "bb.java" 
+    | verify-true
+get-view "Package Explorer" | get-tree | select "MyProject/qqq" | get-menu "New/Class" | click
+with [get-window "New Java Class"] {
+    get-editbox -after [get-label "Name:"] | set-text a
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyProject/qqq/\\(default package\\)/a.java" | get-property caption 
+    | equals "a.java" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

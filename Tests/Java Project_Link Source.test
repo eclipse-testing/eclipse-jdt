@@ -1,0 +1,41 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_flweID3ZEeKNqPSkY0DPCQ
+Element-Name: Java Project_Link Source
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _6ZNH8D3YEeKNqPSkY0DPCQ
+Save-Time: 12/4/12 1:15 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click Java Project and select "Link Source" command;
+2. Select bin folder from another Java Project and name it as bin2;
+3. Click Finish, make sure that source has been linked. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "Build Path/Link Source..." | click
+set-dialog-result Folder "platform:/resource/JavaProject2/src"
+get-window "Link Source" | get-button "Browse..." | click
+set-dialog-result Folder "platform:/resource/JavaProject2/bin"
+with [get-window "Link Source"] {
+    get-button "Browse..." | click
+    get-editbox -after [get-label "Folder name:"] | set-text bin2
+    get-button "Next >" | click
+    get-button Finish | click
+}
+with [get-view "Package Explorer" | get-tree] {
+    get-item MyProject | get-property childCount | equals 3 | verify-true
+    get-item "MyProject/bin2" | get-property caption | equals bin2 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

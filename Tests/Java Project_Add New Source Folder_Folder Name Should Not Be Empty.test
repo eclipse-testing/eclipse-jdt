@@ -1,0 +1,36 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw
+Element-Name: Java Project_Add New Source Folder_Folder Name Should Not Be Empty
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _1yQOID3cEeKNqPSkY0DPCQ
+Save-Time: 12/4/12 1:37 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Rightc-click Java Project and select "Build Path/New Source Folder";
+2. Set folder name as "";
+3. Make sure that Finish button is disabled and "Root name must be entered." message is shown;
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "Build Path/New Source Folder..." | click
+get-window "New Source Folder" | get-editbox -after [get-label "Folder name:"] | set-text ""
+with [get-window "New Source Folder"] {
+    get-editbox -after [get-label "Source Folder"] | get-property text | equals "Root name must be entered." 
+        | verify-true
+    get-button "Next >" | get-property enablement | equals false | verify-true
+    get-button Finish | get-property enablement | equals false | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,38 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_flweID3ZEeKNqPSkY0DPCQ
+Element-Name: Java Project_Link Source_Folder Name Should Be Unique
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _KZzoUD3aEeKNqPSkY0DPCQ
+Save-Time: 12/4/12 1:21 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click Java Project and select "Link Source" command;
+2. Select bin folder from another Java Project and leave its name as bin;
+3. Make sure that Finish button is disabled and error message "The folder already exists" is shown. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "Build Path/Link Source..." | click
+set-dialog-result Folder "platform:/resource/JavaProject2/bin"
+get-window "Link Source" | get-button "Browse..." | click
+
+get-window "Link Source" | get-editbox -after [get-label "Folder name:"] | set-text bin
+with [get-window "Link Source"] {
+    get-editbox -after [get-label "Source Folder"] | get-property text 
+        | equals "The folder \'MyProject/bin\' already exists." | verify-true
+    get-button Finish | get-property enablement | equals false | verify-true
+    get-button "Next >" | get-property enablement | equals false | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
