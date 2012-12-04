@@ -1,0 +1,52 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw
+Element-Name: Source Folder_Configure Output Folder_Specific
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _Wnd3AD3lEeKNqPSkY0DPCQ
+Save-Time: 12/4/12 2:46 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click src source folder and select Build Path/Configure Output Folder;
+2. Switch to "Specific output folder  option";
+3. Create new folder and press OK;
+4. Make sure that output folder is set to this new folder. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src" | get-menu "Build Path/Configure Output Folder..." 
+    | click
+with [get-window "Source Folder Output Location"] {
+    get-button "Specific output folder (path relative to \'MyProject\')." | click
+    get-button "Browse..." | click
+    with [get-window "Folder Selection"] {
+        get-tree | select MyProject
+        get-button "Create New Folder..." | click
+        with [get-window "New Folder"] {
+            get-editbox -after [get-label "Folder name:"] | set-text fld
+            get-button OK | click
+        }
+        get-button OK | click
+    }
+    get-button OK | click
+}
+get-view "Package Explorer" | get-tree | select "MyProject/src" | get-menu "Build Path/Configure Output Folder..." 
+    | click
+get-window "Source Folder Output Location" | get-editbox | get-property text | equals fld | verify-true
+get-window "Source Folder Output Location" | get-button Cancel | click
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "Build Path/Configure Build Path..." | click
+get-window "Properties for MyProject" | get-tab-folder | get-tab-item Source | click
+get-window "Properties for MyProject" | get-button "Allow output folders for source folders" | get-property selected 
+    | equals true | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

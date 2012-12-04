@@ -1,0 +1,45 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw
+Element-Name: Source Folder_Configure Output Folder_Default
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _Apb5cD3lEeKNqPSkY0DPCQ
+Save-Time: 12/4/12 2:36 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click src source folder and select Build Path/Configure Output Folder;
+2. Make sure that Default output folder option is selected;
+3. Click OK button.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src" | get-menu "Build Path/Configure Output Folder..." 
+    | click
+get-window "Source Folder Output Location" | get-button "Project\'s default output folder (\'MyProject/bin\')." 
+    | get-property selected | equals true | verify-true
+get-window "Source Folder Output Location" | get-button OK | click
+get-view "Package Explorer" | get-tree | select "MyProject/src" | get-menu "Build Path/Configure Output Folder..." 
+    | click
+get-window "Source Folder Output Location" | get-button "Project\'s default output folder (\'MyProject/bin\')." 
+    | key-type "TRAVERSE_ESCAPE"
+get-view "Package Explorer" | get-tree | select "MyProject/src" | get-menu "Build Path/Configure Build Path..." | click
+with [get-window "Properties for MyProject" | get-tab-folder] {
+    get-tab-item "Order and Export" | click
+    get-tab-item Libraries | click
+    get-tab-item Projects | click
+    get-tab-item Source | click
+}
+get-window "Properties for MyProject" | get-editbox -after [get-label "Default output folder:"] | get-property text 
+    | equals "MyProject/bin" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
