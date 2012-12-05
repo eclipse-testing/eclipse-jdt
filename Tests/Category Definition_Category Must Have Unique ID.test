@@ -7,7 +7,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _lC6ewD6nEeKNqPSkY0DPCQ
-Save-Time: 12/5/12 2:00 PM
+Save-Time: 12/5/12 5:25 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -28,12 +28,9 @@ Entry-Name: .content
 get-view "Package Explorer" | get-tree | select "PluginProject/CatDef2.xml" | double-click
 with [get-editor "CatDef2.xml"] {
     get-section "Managing the Categories" | get-button "New Category" | click
-    with [get-section "Category Properties" | get-editbox -after [get-label "ID*:"]] {
-        set-text category1
-        key-type "M1+s"
-        set-text "new_category_13"
-    }
+    get-section "Category Properties" | get-editbox -after [get-label "ID*:"] | set-text category1
 }
+get-button "Save (M1+S)" | click
 get-window "Invalid category id" | get-label "The category must have a unique id." | get-property caption 
     | equals "The category must have a unique id." | verify-true
 get-window "Invalid category id" | get-button OK | click
