@@ -1,0 +1,36 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_P7P88D6xEeKNqPSkY0DPCQ
+Element-Name: Category Definition_Copy Paste Feature
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _IyB3gD6xEeKNqPSkY0DPCQ
+Save-Time: 12/5/12 2:58 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Category Definition;
+2. Select category1 feature, right-click, Copy;
+3. Select category3, paste;
+4. Make sure that feature was pasted. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "PluginProject/CatDef2.xml" | double-click
+with [get-editor "CatDef2.xml" | get-section "Managing the Categories" | get-tree] {
+    select "category1/MyFeatureProject.*" | get-menu Copy | click
+    select category3 | get-menu Paste | click
+}
+get-editor "CatDef2.xml" | get-section "Managing the Categories" | get-tree 
+    | get-item "category3/MyFeatureProject.*" | get-property caption 
+    | equals "MyFeatureProject.*" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,169 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Context-Type: com.xored.q7.workspace.context
+Element-Name: CategoryDefinitionWithFeature
+Element-Type: context
+Element-Version: 2.0
+Id: _P7P88D6xEeKNqPSkY0DPCQ
+Save-Time: 12/5/12 2:56 PM
+
+------=_contents/PluginProject/build.properties-e3791e14-a3f8-3bea-94a5-7db13b7cbd98
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/build.properties
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnQrzi8tSk7V01OwVSguStbn5covLSko
+LQELJGXmAQWApF5mXnJOaUpqMVDQ1zXEUdfTz01fJ4aXSwEV6PFyAQBQSwcI0ltg+z8AAABQAAAAUEsB
+AhQAFAAICAgAAAAhANJbYPs/AAAAUAAAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAAB
+AAEANgAAAHUAAAAAAA==
+------=_contents/PluginProject/build.properties-e3791e14-a3f8-3bea-94a5-7db13b7cbd98--
+------=_contents/MyFeatureProject/component.xml-18238998-d0cf-3fcc-9696-088ff51bab22
+Content-Type: q7/binary
+Entry-Name: contents/MyFeatureProject/component.xml
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnRVjjEOwjAMRfdK3MHyTkw3VCXtAOIE
+cIAqhBKpcaImajg+pgOC9T+9Z+vhFWZY3ZJ9ZIOtOiA4tvHueTJ4u172Rxz6XaOzXTobQ4rsuIBInDvZ
+DD5LSR1RrVXFPHkVl4k2TIJpbdXW5DE4g6dv4Owenn2Royh1ANA+pNkFYeNnBTuPOf8YSH2j6e8LEd9Q
+SwcIF03l4Y0AAAC/AAAAUEsBAhQAFAAICAgAAAAhABdN5eGNAAAAvwAAAAgAAAAAAAAAAAAAAAAAAAAA
+AC5jb250ZW50UEsFBgAAAAABAAEANgAAAMMAAAAAAA==
+------=_contents/MyFeatureProject/component.xml-18238998-d0cf-3fcc-9696-088ff51bab22--
+------=_contents/PluginProject/CatDef2.xml-26fe20fb-8b9d-3b1a-b129-ab1fcb2b1d20
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/CatDef2.xml
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSNkDEPgjAQhXcT/8PldkBgcWhlYzNx
+0NlUOEhNaWMpRv69KCVRMcbccPeS++69HMtujYIr2VYazTEOVwikC1NKXXM87PNgjdlmuWCtdDR0AGAV
+CddZgs4qjl600bbPx3FnzZkKdxxuDXXphJKVJBuehUWQJcfPTXzzf2VwdHyYFsJRbWwPWjTEcZIxRj5V
+5JN4OS0EJVUzBpQ4kfp25QeWzLDkHyydYekTY5F/6R1QSwcIb1tFJq4AAACDAQAAUEsBAhQAFAAICAgA
+AAAhAG9bRSauAAAAgwEAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAOQA
+AAAAAA==
+------=_contents/PluginProject/CatDef2.xml-26fe20fb-8b9d-3b1a-b129-ab1fcb2b1d20--
+------=_contents/PluginProject/CatDef1.xml-f38abcfe-7969-3bdd-8228-8565f6811027
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/CatDef1.xml
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSzsa/IzVEoSy0qzszPs1Uy1DNQUkjN
+S85PycxLt1UKDXHTtVCyt+PlsinOLEkF0fpQBgBQSwcI9zusnTMAAAA5AAAAUEsBAhQAFAAICAgAAAAh
+APc7rJ0zAAAAOQAAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAGkAAAAA
+AA==
+------=_contents/PluginProject/CatDef1.xml-f38abcfe-7969-3bdd-8228-8565f6811027--
+------=_contents/PluginProject/.project-f945d2b2-017a-3fae-9b1d-00f7ff3b7480
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/.project
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnS9ksFqAyEQhs8J5B3C3qPNrQezgbT0
+1hJI+gBWJxvDOoq6IY9fdd2WZQn0UHKb/5/5/cSRbW+6XV7BeWVwU63JU7UEFEYqbDbV5/Ft9Vxt68Wc
+WWcuIMIreOGUDXE6ujOGXEO9b7tG4b6fYDR7qSmM1oChZnSokltO8lnQkfrqVCsPFkRSRb7EKEeZncIz
+riEgWmU9kIsMRBgXC37lOQDu9woxwV3TJbYvmo4NRieUP3GtBPLOUZ3Ah91jsQdxBs3/BVqc4ckjL3QO
+ynQvJvh+2x+5meh56F5gtB6cZIY6EX/+wviPfQNQSwcIzXZ1wOcAAACiAgAAUEsBAhQAFAAICAgAAAAh
+AM12dcDnAAAAogIAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAB0BAAAA
+AA==
+------=_contents/PluginProject/.project-f945d2b2-017a-3fae-9b1d-00f7ff3b7480--
+------=_contents/MyFeatureProject/feature.xml-88b32fe5-a9d5-37bf-9286-a62326a9e9dd
+Content-Type: q7/binary
+Entry-Name: contents/MyFeatureProject/feature.xml
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnR90b0OgjAUBeCdxHdougu6GQM6+DNp
+4qCTccBykZrS4qWIvL0VakNipJ3annO/oeHylQvyBCy5khGd+hNKQDKVcHmL6Om4Hc/ocjHywhRiXSGM
+PNIunkR032y7ywOqOzBNv48ivoIYeO9zZj+qWPCUA1IDtZkwgZIhL7RJkQrNrEzrYh4EdV378IrzQoDP
+VB70cp9yN/68kRqQWJyse7MyQPAvndEvO5ipokF+y/Qg61I/6Mr1/7Ku7FDBGcgSBkmb+QF3tvuXs8UW
+CwP7jeb0BlBLBwiC/HAi0QAAAPoBAABQSwECFAAUAAgICAAAACEAgvxwItEAAAD6AQAACAAAAAAAAAAA
+AAAAAAAAAAAALmNvbnRlbnRQSwUGAAAAAAEAAQA2AAAABwEAAAAA
+------=_contents/MyFeatureProject/feature.xml-88b32fe5-a9d5-37bf-9286-a62326a9e9dd--
+------=_contents/PluginProject/bin/pluginproject/Activator.class-2dd5e9ca-9b34-3e65-9ad8-c3a99e564f30
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/bin/pluginproject/Activator.class
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSFkl1PE0EUht/p19J1KQoWrAURpLXU
+xL3wEmOCIKZJQ5ogvSXTZVgHl93N7Czys/y4IPHCH+CPMp6ZbUpiYs0ms2fOOfOc953dX79//ATwCl0H
+JYa1NMpDGacquRSB9vcDLa+5TpSDCkM3UaEvgkimmfBz6Re9/v4k04oH+nQwsgmG+mh4+n5wfDY4ZFge
+XvJr7kc8Dv0TrWQc7jEsHiRxpnmsxzzKxQLqlCoOj4rJDLV0CmsN/6GJOLXXMpb6DUO5tztmqBwk58JF
+Gfc9eFhkWBrKWBznVxOhPvBJJIycJODRmCtp9tNkRX+UGUOVJCka3ekNjdMkC6V/ofiV+JyoT/7bPD6P
+BAnX4kbvmXHuu5tApFqSFwePGFbunM4qRs1jDw/RrINh3YOLewxOUGAYtv8/ivRlOkkNacvDJpo0ORT6
+UFzwPCJEu7c754rckyRXgTiSxmhjVnlptGKLNJXp85fQQhU12jl2t0AySSjFFcrRVdLasL8Joweo9m+x
+9NW2PqDVpTfIYwVNLFPkFU1YsQhm3FPH6hS3ZlFHlDGn3P6LW7T639G+4zWsqHUibKCOJ5a5WnRPmSba
+oIqRszmPzghsJjz9m96h7i7Rn8+l17GNZ1PzO9YVTfmG9pcZrWazvqWUrNsdG3X+AFBLBwjzVZnp6wEA
+AFoDAABQSwECFAAUAAgICAAAACEA81WZ6esBAABaAwAACAAAAAAAAAAAAAAAAAAAAAAALmNvbnRlbnRQ
+SwUGAAAAAAEAAQA2AAAAIQIAAAAA
+------=_contents/PluginProject/bin/pluginproject/Activator.class-2dd5e9ca-9b34-3e65-9ad8-c3a99e564f30--
+------=_contents/PluginProject/META-INF/MANIFEST.MF-0a2b8522-5656-321b-b5a6-1e35bf0d30f9
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/META-INF/MANIFEST.MF
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnR9j80OgjAQhO8kvkMfQBrxYtKbJlxM
+MEQS77UsZE1pYWmJ+PSi/EQ9mL3tN7Mzm0iDBbQuvAC1aI1gEd8EB29yDWEywYVtZ3KSFQiWal+iScne
+QLkZZX11tRrVH8ln1jCNlxoLBJr5XjnspLMkWP3216OfLyA4Q+ORIBwdglkqOSiNdQvc43oVfG2UJeDk
+jcMK5pDpQh7fQXk31IlNh2RNBcYJdpSdzOIw4rufUoMwfb3XC6blow+eUEsHCE6RWjC4AAAAQQEAAFBL
+AQIUABQACAgIAAAAIQBOkVowuAAAAEEBAAAIAAAAAAAAAAAAAAAAAAAAAAAuY29udGVudFBLBQYAAAAA
+AQABADYAAADuAAAAAAA=
+------=_contents/PluginProject/META-INF/MANIFEST.MF-0a2b8522-5656-321b-b5a6-1e35bf0d30f9--
+------=_contents/PluginProject/.settings/org.eclipse.jdt.core.prefs-6440911e-b470-30d7-8f55-9312dfb4921e
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/.settings/org.eclipse.jdt.core.prefs
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSVjrEKAjEQRHvBXwlYWaWx08pfiJe5
+YyXZDbM5wb83gtaezTIs84aHqUhzhEbMIHSChwfoYhoP+51xCfhU7rmHyYhxapMCjpCxQINoEcXFeXp2
+vJ8Rmm4FeetAT1zQryX12VjjIRx/k7UVScN3S7vRhk4NyR3s5wztMgsYQRq30tC1/su6rfw6vgBQSwcI
+6+RCnYoAAABsAQAAUEsBAhQAFAAICAgAAAAhAOvkQp2KAAAAbAEAAAgAAAAAAAAAAAAAAAAAAAAAAC5j
+b250ZW50UEsFBgAAAAABAAEANgAAAMAAAAAAAA==
+------=_contents/PluginProject/.settings/org.eclipse.jdt.core.prefs-6440911e-b470-30d7-8f55-9312dfb4921e--
+------=_contents/MyFeatureProject/build.properties-b00054a9-e1df-3aba-93a4-ecae11624588
+Content-Type: q7/binary
+Entry-Name: contents/MyFeatureProject/build.properties
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnRLyszTy8xLzilNSS1WsFVIS00sKS1K
+1avIzeHlAgBQSwcI43sDnh4AAAAcAAAAUEsBAhQAFAAICAgAAAAhAON7A54eAAAAHAAAAAgAAAAAAAAA
+AAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAFQAAAAAAA==
+------=_contents/MyFeatureProject/build.properties-b00054a9-e1df-3aba-93a4-ecae11624588--
+------=_contents/PluginProject/src/pluginproject/Activator.java-7d7369a5-a229-329f-bf72-1abbd68c31f6
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/src/pluginproject/Activator.java
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnStU9tKAzEQfd5C/2FQH9pCd/F5EbxU
+pFJq8fIsMTvdxqZJyKVVxH832ey2tUW84MsGhnPOnDMzqwidkxJBcVcyobR8RmrzdqvdYgsltQWpyxQp
+Z8pg6lgacenZk7GaUPswnFSF/BNempKlU00WuJJ6np47UXC8kMLiS9TOer12C3pwP0PwKmxJrNRAOTEG
+qMdpyQ3YWbTVZwI4myLQV8ox8LJ2S7knzmhNOVtL+AYoCl/Z8QdvoW2SZVXLRnU48LVayVhi/TNlgnC4
+s5qJEiajh6vh+HE4gBM4iEKTOKGDHLLsaHwz7o9Hd/3jo211MyMaC2DCSwqKoYUO9rDpsbGrmuElgR6G
+ktRT8VPwCRz1qKqYbZyu6Z1uiJW8x+Y1uSOk6F+TJSkk7cbSqUH84R4PvUVtO98tsbvraSlZAZH7CVht
+MxD8NrVcGbh8oagsk9VGksQ4hTqNxAYaxpFEf37udsZM/v8ppfpzSE/9VcZ1FOE4z7dTe6Xt0E3EOuMt
+WqdF/A/2bwpq1KmuYF+isr0T35xfiXaAU+K4rU8pqcU2d1l58p8PUEsHCJdFGImlAQAAKAQAAFBLAQIU
+ABQACAgIAAAAIQCXRRiJpQEAACgEAAAIAAAAAAAAAAAAAAAAAAAAAAAuY29udGVudFBLBQYAAAAAAQAB
+ADYAAADbAQAAAAA=
+------=_contents/PluginProject/src/pluginproject/Activator.java-7d7369a5-a229-329f-bf72-1abbd68c31f6--
+------=_contents/MyFeatureProject/.project-cc24e01e-6612-35ff-b428-f5b29b54c5ab
+Content-Type: q7/binary
+Entry-Name: contents/MyFeatureProject/.project
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnStkdEKwiAUhq8Leoex+7TuunAbVOyu
+CKoH2PQwjE1Ft6i3T51rjAi66Eb8f3/Pd46S7NHU0R204VIk8Rqt4ggElYyLKomvl3y5ibN0MSdKyxvQ
+dg+Gaq5am7bujIiigfTwzKFoOw2nPkSwt905lU0Dok0JHnbODcWMF3iiyo7X7KyAOhXkzl4tBPNOQEpd
+IaA1VwaQYoBCA1sXBz02YPOFrjpHNkHjqUHwB+NnKjOISg2o/Ac2OMPslugmCulefBv76FeH9ylfbLz+
+fuHp570AUEsHCIr8WlXQAAAA+wEAAFBLAQIUABQACAgIAAAAIQCK/FpV0AAAAPsBAAAIAAAAAAAAAAAA
+AAAAAAAAAAAuY29udGVudFBLBQYAAAAAAQABADYAAAAGAQAAAAA=
+------=_contents/MyFeatureProject/.project-cc24e01e-6612-35ff-b428-f5b29b54c5ab--
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf
+Content-Type: q7/binary
+Entry-Name: .q7.content
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnStVE1v4jAQva/U/xD5XrvtoSAEWyE+
+JLQKyqqV2D1VrjMJpo4dbAPpv98JJFBYAltpb/bM83tvPpLuU5GpYA3WSaN75J7ekQC0MLHUaY+sfHLb
+Jk/fb751hcloYSzEdNmiG2PfXc4FdGb1aWC0h8IHRSY7e7qHkg4FtOtgvEfm3ucdxjabDTVZSo1N2a9w
+UkPOS+xfMcyzbZ4tW2yfpyAwRgLNM8QOuIfU2I8hJFJLjy5m0s/HwP2qBMm4R16jVtRuDx+LEfyYLqPn
+9993w2jwkwRCAbezg27ClQOCxQcBlo/lab+94DW3ZgHCu0o1/KgUol2cVDhEJlJBDaPVM8LO599WUsUl
+KAfrJbgmHDYiNxrtUGxcEyjZOTqCdFltvKGQSK1Sqa9UIRR32CI/b5K+VicOCedzf8n9DvJwCXKxW0bF
+uIS1Hwfe40K7Q0UnXLiJuEdK5g7oIva0XCmkhuSIlVW0TTrh6KV/O5mOG2XC/nQyHj2/0HD8Fd43qY8p
+j7L5dmb56cz+Eu8LL9fcG7sb4CcDZy1cM+Ws+K+mFnzNv+jpZJ277PCVlud/+mEh9g9QSwcIs6LuXLAB
+AAAEBQAAUEsBAhQAFAAICAgAAAAhALOi7lywAQAABAUAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50
+UEsFBgAAAAABAAEANgAAAOYBAAAAAA==
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf--
+------=_contents/PluginProject/.classpath-f5018a0e-4782-30f3-bc31-d3f46c2f33ce
+Content-Type: q7/binary
+Entry-Name: contents/PluginProject/.classpath
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSVkMFqAjEQhs8t9B2W3J2tp/awWyll
+CwrVotteJSbDOjWdxEki+vZqqVQ8CL3NP3zzMfzVYPvtig1KJM+16sO9KpCNt8RdrT7a196jGjzd3VbG
+6RiDTstDuPlLyEl2xYrY1sp4VsVxWSsvHaBxFCLCl03gdGazPDhhNG3mL5Nx+zwcN9PykiNOKKwdWFzk
+DjL9XqLALGm2WuznW7sLWI70Rs+aXh8eVPnvl4JFMF4QBNeZBO27yx1xvKaKYk6q43iF9DmFnE7wgvgH
+rsrzCvdQSwcI3YygLc8AAAB4AQAAUEsBAhQAFAAICAgAAAAhAN2MoC3PAAAAeAEAAAgAAAAAAAAAAAAA
+AAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAAUBAAAAAA==
+------=_contents/PluginProject/.classpath-f5018a0e-4782-30f3-bc31-d3f46c2f33ce--
