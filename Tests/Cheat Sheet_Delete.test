@@ -1,0 +1,32 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_7MAqgD9wEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Delete
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _GQiu8D9xEeKNqPSkY0DPCQ
+Save-Time: 12/6/12 1:52 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open cheat sheet;
+2. Select cheat sheet in Package Explorer view and press DEL key;
+3. Make sure that cheat sheet is deleted and its editor is closed. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/SimpleCheatSheet.xml" | double-click
+get-tab-folder -index 1 | get-property activePage | equals "SimpleCheatSheet.xml" | verify-true
+get-view "Package Explorer" | get-tree | select "MyProject/SimpleCheatSheet.xml" | key-type Del
+get-window Delete | get-button OK | click
+get-tab-folder -index 1 | get-property activePage | equals "SimpleCheatSheet.xml" | verify-false
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,37 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_7MAqgD9wEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Optional Step Can't Have Sub Steps
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _l1AzkD93EeKNqPSkY0DPCQ
+Save-Time: 12/6/12 2:38 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Cheat Sheet and select any step;
+2. Check "This step is optional" option;
+3. Make sure that "Add Sub-Step" button is disabled. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/SimpleCheatSheet.xml" | double-click
+get-editor "SimpleCheatSheet.xml" | get-section Content | get-tree | select "Create New Java Project/Step2"
+get-editor "SimpleCheatSheet.xml" | get-section Content | get-button "Add Sub-Step" | get-property enablement 
+    | equals true | verify-true
+get-editor "SimpleCheatSheet.xml" | get-section Definition | get-button "This step is optional" | click
+get-editor "SimpleCheatSheet.xml" | get-section Content | get-button "Add Sub-Step" | get-property enablement 
+    | equals false | verify-true
+get-editor "SimpleCheatSheet.xml" | get-section Definition | get-button "This step is optional" | click
+get-editor "SimpleCheatSheet.xml" | get-section Content | get-button "Add Sub-Step" | get-property enablement 
+    | equals true | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
