@@ -1,0 +1,37 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_7MAqgD9wEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Remove Step
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _G2OGgD9_EeKNqPSkY0DPCQ
+Save-Time: 12/6/12 3:33 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Cheat Sheet;
+2. Select any step;
+3. Press Remove button;
+4. Make sure that step has been removed.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/SimpleCheatSheet.xml" | double-click
+with [get-editor "SimpleCheatSheet.xml" | get-section Content] {
+    get-tree | select "Create New Java Project/Step2"
+    get-button Remove | click
+    get-tree | select "Create New Java Project/Step3"
+}
+get-editor "SimpleCheatSheet.xml" | get-section Content | get-tree | get-item "Create New Java Project" 
+    | get-property childCount | equals 3 | verify-true
+get-editor "SimpleCheatSheet.xml" | get-section Content | get-tree | verify-error{select "Create New Java Project/Step2"}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
