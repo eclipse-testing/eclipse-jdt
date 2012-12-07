@@ -1,0 +1,42 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z5fh0C1lEeKgx4EWM9YkNw
+Element-Name: Cheat Sheet_Cancel Add Composite
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _b2TqgEBCEeKNqPSkY0DPCQ
+Save-Time: 12/7/12 2:49 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select File/New/User Assistance/Cheat Sheet;
+2. Type file name, select "Composite Cheat Sheet" option and press Cancel button;
+3. Make sure that .xml file wasn't created. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "New/Other..." | click
+with [get-window New] {
+    with [get-tree] {
+        select "User Assistance" | double-click
+        select "User Assistance/Cheat Sheet"
+    }
+    get-button "Next >" | click
+}
+with [get-window "New Cheat Sheet"] {
+    get-group "Cheat Sheet Type" | get-button "Composite Cheat Sheet" | click
+    get-tree | select MyProject
+    get-editbox -after [get-label "File name:"] | set-text "qqq.xml"
+    get-button Cancel | click
+}
+get-view "Package Explorer" | get-tree | verify-error{select "MyProject/qqq.xml"}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

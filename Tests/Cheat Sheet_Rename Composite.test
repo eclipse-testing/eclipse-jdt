@@ -1,0 +1,39 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_5wgp4EBBEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Rename Composite
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _Oa1j4EBCEeKNqPSkY0DPCQ
+Save-Time: 12/7/12 2:47 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click composite cheat sheet in a Package Explorer view and select Refactor/Rename;
+2. Set new name and press OK; 
+3. Make sure that cheat sheet was renamed. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | key-type F2
+with [get-window "Rename Resource"] {
+    with [get-editbox -after [get-label "New name:"]] {
+        click-text 19
+        key-type Right
+        set-text "CompositeCheatSheet2.xml"
+    }
+    get-button OK | click
+}
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet2.xml" | double-click
+get-tab-folder -index 1 | get-property activePage | equals "CompositeCheatSheet2.xml" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
