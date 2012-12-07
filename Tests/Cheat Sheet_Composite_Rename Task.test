@@ -1,0 +1,47 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_5wgp4EBBEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Composite_Rename Task
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _4CD08EBKEeKNqPSkY0DPCQ
+Save-Time: 12/7/12 3:50 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open composite cheat sheet;
+2. Select any task and change it's name;
+3. Save and reopen - make sure new task name has been saved. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
+with [get-editor "CompositeCheatSheet.xml"] {
+    get-section Content | get-tree | select "Title/Group/Task2"
+    with [get-section Definition | get-editbox -after [get-label "Name*:"]] {
+        set-text "Task2_new"
+       
+    }
+ key-type "M1+s"
+}
+with [get-editor "CompositeCheatSheet.xml"] {
+    get-section Content | get-tree | get-item "Title/Group/Task2_new" | get-property caption | equals "Task2_new" 
+        | verify-true
+    get-section Definition | get-editbox -after [get-label "Name*:"] | get-property text | equals "Task2_new" 
+        | verify-true
+}
+get-editor "CompositeCheatSheet.xml" | close
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
+get-editor "CompositeCheatSheet.xml" | get-section Content | get-tree | select "Title/Group/Task2_new"
+get-editor "CompositeCheatSheet.xml" | get-section Definition | get-editbox -after [get-label "Name*:"] 
+    | get-property text | equals "Task2_new" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
