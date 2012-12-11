@@ -1,0 +1,42 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_rFxyMENfEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Composite_Preview - Start working on selected task
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _CKA38ENiEeKNqPSkY0DPCQ
+Save-Time: 12/11/12 2:15 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open composite cheat sheet and press Preview button;
+2. In Cheat Sheets view select second task and click "Start working on this task";
+3. Make sure that only second task steps are shown.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
+get-editor "CompositeCheatSheet.xml" | get-section Content | get-button Preview | click
+with [get-view "Cheat Sheets"] {
+    get-tree | select "Group/Create New Java Class"
+    get-link "Start working on this task" | click
+}
+with [get-view "Cheat Sheets"] {
+    get-section "Open New Class Dialog" | get-label "Open New Class Dialog" | get-property caption 
+        | equals "Open New Class Dialog" | verify-true
+    get-section "Name Java Class" | get-label "Name Java Class" | get-property caption | equals "Name Java Class" 
+        | verify-true
+    get-section Finish | get-label Finish | get-property caption | equals Finish | verify-true
+    get-label "Create New Java Class" | get-property caption | equals "Create New Java Class" | verify-true
+}
+get-view "Cheat Sheets" | get-section Introduction | get-link "Click to Begin" | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

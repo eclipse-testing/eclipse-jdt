@@ -1,0 +1,38 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_rFxyMENfEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Composite_Preview
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _HBfZsENhEeKNqPSkY0DPCQ
+Save-Time: 12/11/12 2:07 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Composite cheat sheet;
+2. Press "Preview" button;
+3. Make sure that Cheat Sheets view is opened with cheat sheet in it.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
+get-editor "CompositeCheatSheet.xml" | get-section Content | get-button Preview | click
+with [get-view "Cheat Sheets"] {
+    get-label Title123 | get-property caption | equals Title123 | verify-true
+    with [get-tree] {
+        get-item Group | get-property caption | equals Group | verify-true
+        get-item Group | get-property childCount | equals 2 | verify-true
+        get-item "Group/Create New Java Project" | get-property caption | equals "Create New Java Project" | verify-true
+        get-item "Group/Create New Java Class" | get-property caption | equals "Create New Java Class" | verify-true
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

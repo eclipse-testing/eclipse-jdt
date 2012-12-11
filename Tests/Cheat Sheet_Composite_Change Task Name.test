@@ -1,0 +1,39 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_rFxyMENfEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Composite_Change Task Name
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _jB9okENmEeKNqPSkY0DPCQ
+Save-Time: 12/11/12 2:45 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open composite cheat sheet;
+2. Change task name;
+3. Save and preview - make sure that task was renamed. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
+with [get-editor "CompositeCheatSheet.xml"] {
+    get-section Content | get-tree | select "Title123/Group/Create New Java Project"
+    with [get-section Definition | get-editbox -after [get-label "Name*:"]] {
+        set-text "Create New Java Project_new"
+        key-type "M1+s"
+    }
+    get-section Content | get-button Preview | click
+}
+get-view "Cheat Sheets" | get-tree | get-item "Group/Create New Java Project_new" | get-property caption 
+    | equals "Create New Java Project_new" | verify-true
+get-view "Cheat Sheets" | get-link "Go to \'Create New Java Project_new\'" | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

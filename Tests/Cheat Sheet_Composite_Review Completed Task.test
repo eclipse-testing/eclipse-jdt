@@ -1,0 +1,43 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_rFxyMENfEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Composite_Review Completed Task
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _eu3N8ENhEeKNqPSkY0DPCQ
+Save-Time: 12/11/12 2:11 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open composite cheat sheet and preview it;
+2. Follow its steps to the end and click on "Review this task";
+3. Make sure that youcan review the task with all steps. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
+get-editor "CompositeCheatSheet.xml" | get-section Content | get-button Preview | click
+with [get-view "Cheat Sheets"] {
+    get-link "Go to \'Create New Java Project\'" | click
+    get-link "Start working on this task" | click
+    get-section Introduction | get-link "Click to Begin" | click
+    get-section Step1 | get-link "Click when complete" | click
+    get-section Step2 | get-link "Click when complete" | click
+    get-section Step3 | get-link "Click when complete" | click
+    get-link "Review this task" | click
+}
+with [get-view "Cheat Sheets"] {
+    get-section Step1 | get-label Step1 | get-property caption | equals Step1 | verify-true
+    get-section Step2 | get-label Step2 | get-property caption | equals Step2 | verify-true
+    get-section Step3 | get-label Step3 | get-property caption | equals Step3 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

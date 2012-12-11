@@ -1,0 +1,36 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_rFxyMENfEeKNqPSkY0DPCQ
+Element-Name: Cheat Sheet_Composite_All Buttons Disabled For Title
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _rtnY0ENgEeKNqPSkY0DPCQ
+Save-Time: 12/11/12 2:03 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open composite cheat sheet and select Title;
+2. Make sure that only Preview button is enabled. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
+get-editor "CompositeCheatSheet.xml" | get-section Content | get-tree | select Title123
+with [get-editor "CompositeCheatSheet.xml" | get-section Content] {
+    get-button "Add Task" | get-property enablement | equals false | verify-true
+    get-button "Add Group" | get-property enablement | equals false | verify-true
+    get-button Remove | get-property enablement | equals false | verify-true
+    get-button Up | get-property enablement | equals false | verify-true
+    get-button Down | get-property enablement | equals false | verify-true
+    get-button Preview | get-property enablement | equals true | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
