@@ -7,7 +7,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _JKfDoD-JEeKNqPSkY0DPCQ
-Save-Time: 12/6/12 4:47 PM
+Save-Time: 12/11/12 3:52 PM
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -32,7 +32,7 @@ with [get-view "Cheat Sheets"] {
     get-section Step3 | click
 }
 with [get-view "Cheat Sheets"] {
-    get-section Step1 | get-link -index 0 | click
+    get-section Step1 | get-link -index 1 | click
     get-section Step2 | get-link "Click when complete" | click
     get-section Step3 | get-link "Click when complete" | click
 }
