@@ -1,0 +1,48 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_kZS6wEQdEeKZdf7PpPMhdg
+Element-Name: Context Help_Remove Context
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _2VIG0EQgEeKZdf7PpPMhdg
+Save-Time: 12/12/12 12:59 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open context help file;
+2. Select any context and press Remove button;
+3. Make sure that the context has been removed;
+4. Save and reopen context help file - make sure that your changes were saved.  
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/ContextHelp.xml" | double-click
+with [get-editor "ContextHelp.xml" | get-section "Context Help"] {
+    get-tree | select Context2
+    get-button Remove | click
+}
+with [get-editor "ContextHelp.xml" | get-section "Context Help" | get-tree] {
+    get-property itemCount | equals 1 | verify-true
+    get-item Context | get-property caption | equals Context | verify-true
+}
+with [get-editor "ContextHelp.xml" | get-section "Context Help"] {
+    get-tree | select Context
+    get-button Remove | click
+}
+get-editor "ContextHelp.xml" | get-section "Context Help" | get-tree | get-property itemCount | equals 0 | verify-true
+with [get-editor "ContextHelp.xml"] {
+    get-section "Context Help" | get-button "Add Context" | key-type "M1+s"
+    close
+}
+get-view "Package Explorer" | get-tree | select "MyProject/ContextHelp.xml" | double-click
+get-editor "ContextHelp.xml" | get-section "Context Help" | get-tree | get-property itemCount | equals 0 | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

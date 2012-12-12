@@ -1,0 +1,44 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_kZS6wEQdEeKZdf7PpPMhdg
+Element-Name: Context Help_Change Topic Label
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _DGHB0EQoEeKZdf7PpPMhdg
+Save-Time: 12/12/12 1:50 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open context help file;
+2. Select any topic and change its label;
+3. Save and reopen - make sure that your changes have been saved. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/ContextHelp.xml" | double-click
+with [get-editor "ContextHelp.xml"] {
+    get-section "Context Help" | get-tree | select "Context/Topic1"
+    with [get-section "Topic Details" | get-editbox -after [get-label "Label:"]] {
+        set-text "Topic1_new label"
+        key-type "M1+s"
+    }
+}
+get-view Outline | get-tree | get-item "Definition/contexts/Context/Topic1_new label" | get-property caption 
+    | equals "Topic1_new label" | verify-true
+get-editor "ContextHelp.xml" | close
+get-view "Package Explorer" | get-tree | select "MyProject/ContextHelp.xml" | double-click
+get-editor "ContextHelp.xml" | get-section "Context Help" | get-tree | select "Context/Topic1_new label"
+get-editor "ContextHelp.xml" | get-section "Topic Details" | get-editbox -after [get-label "Label:"] 
+    | get-property text | equals "Topic1_new label" | verify-true
+get-view Outline | get-tree | get-item "Definition/contexts/Context/Topic1_new label" | get-property caption 
+    | equals "Topic1_new label" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
