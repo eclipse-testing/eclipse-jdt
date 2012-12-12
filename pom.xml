@@ -33,11 +33,6 @@
               <goal>download-single</goal>
             </goals>
             <configuration>
-              <metadata>
-                <public>true</public>
-                <projectName>Eclipse 4.3 JDT Nightly Build</projectName>
-                <buildName>${build-name}</buildName>
-              </metadata>
               <url>${sdk-url}</url>
               <fromFile>${sdk-path}</fromFile>
               <toFile>${project.build.directory}/aut/${sdk-file}</toFile>
@@ -51,6 +46,11 @@
         <version>${q7-version}</version>
         <extensions>true</extensions>
         <configuration>
+          <metadata>
+            <public>true</public>
+            <projectName>Eclipse 4.3 JDT Nightly Build</projectName>
+            <buildName>${build-name}</buildName>
+          </metadata>
           <classifiers>
             <classifier>win32.win32.x86</classifier>
           </classifiers>
