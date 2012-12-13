@@ -1,0 +1,47 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_kZS6wEQdEeKZdf7PpPMhdg
+Element-Name: Context Help_Revert Changes
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _IlNdAEUTEeKZdf7PpPMhdg
+Save-Time: 12/13/12 5:55 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open context help file;
+2. Delete any Topic;
+3. Right-click table and select "Revert" in a menu;
+4. Make sure that deletion is reverted. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/ContextHelp.xml" | double-click
+with [get-editor "ContextHelp.xml" | get-section "Context Help"] {
+    get-tree | select "Context2/Topic3"
+    get-button Remove | click
+}
+get-editor "ContextHelp.xml" | get-section "Context Help" | get-tree | get-item Context2 | get-property childCount 
+    | equals 2 | verify-true
+with [get-editor "ContextHelp.xml"] {
+    with [get-section "Context Help" | get-tree] {
+        get-menu Revert | click
+        key-type F5 -times 2
+    }
+    close
+}
+get-view "Package Explorer" | get-tree | select "MyProject/ContextHelp.xml" | double-click
+with [get-editor "ContextHelp.xml" | get-section "Context Help" | get-tree] {
+    get-item Context2 | get-property childCount | equals 3 | verify-true
+    get-item "Context2/Topic3" | get-property caption | equals Topic3 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

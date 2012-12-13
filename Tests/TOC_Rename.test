@@ -1,0 +1,48 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
+Element-Name: TOC_Rename
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _iM2JEEUUEeKZdf7PpPMhdg
+Save-Time: 12/13/12 6:04 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select TOC in a Package Explorer view and press F2;
+2. Set new name and click OK button;
+3. Make sure that the file was renamed;
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+with [get-editor "TOC.xml"] {
+    get-section "Table of Contents" | get-tree | select "Book/Link"
+    get-section "Link Details" | get-button "Browse..." | click
+}
+with [get-window "Table of Contents Selection"] {
+    get-tree | select "MyProject/TOC2.xml"
+    get-button OK | click
+}
+get-editor "TOC.xml" | get-section "Link Details" | get-button "Browse..." | key-type "M1+s"
+get-view "Package Explorer" | get-tree | select "MyProject/TOC2.xml" | key-type F2
+with [get-window "Rename Resource"] {
+    get-editbox -after [get-label "New name:"] | set-text "TOC2_renamed.xml"
+    get-button OK | click
+}
+get-editor "TOC.xml" | close
+get-view "Package Explorer" | get-tree | get-item "MyProject/TOC2_renamed.xml" | get-property caption 
+    | equals "TOC2_renamed.xml" | verify-true
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | select "Book/TOC2.xml"
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

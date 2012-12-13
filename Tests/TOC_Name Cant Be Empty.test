@@ -1,0 +1,43 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z5fh0C1lEeKgx4EWM9YkNw
+Element-Name: TOC_Name Cant Be Empty
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _7O2N8EUUEeKZdf7PpPMhdg
+Save-Time: 12/13/12 6:06 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Try to create new TOC with empty name;
+2. Make sure that Finish button is disabled. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "User Assistance/Help Table of Contents"
+    get-button "Next >" | click
+}
+get-window "New table of contents" | get-tree | select MyProject
+with [get-window "New table of contents"] {
+    get-button Finish | get-property enablement | equals false | verify-true
+    get-button "Next >" | get-property enablement | equals false | verify-true
+}
+with [get-window "New table of contents"] {
+    get-editbox -after [get-label "File name:"] | set-text "www.xml"
+    get-tree | select MyProject
+}
+get-window "New table of contents" | get-button Finish | get-property enablement | equals true | verify-true
+get-window "New table of contents" | get-editbox -after [get-label "File name:"] | set-text ""
+get-window "New table of contents" | get-button Finish | get-property enablement | equals false | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
