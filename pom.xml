@@ -48,7 +48,7 @@
         <configuration>
           <metadata>
             <public>true</public>
-            <projectName>Eclipse 4.3 JDT Nightly Build</projectName>
+            <projectName>Eclipse 4.3 JDT</projectName>
             <buildName>${build-name}</buildName>
           </metadata>
           <classifiers>
