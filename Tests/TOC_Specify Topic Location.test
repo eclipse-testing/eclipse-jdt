@@ -1,0 +1,45 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
+Element-Name: TOC_Specify Topic Location
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _gIWSwEW5EeKNvvkG60C7-A
+Save-Time: 12/14/12 1:45 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open TOC file and select any Topic;
+2. Click Browse button to specify  location and select qqq.html;
+3. Click on "Location:" link and make sure that qqq.html file editor is opened. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+with [get-editor "TOC.xml"] {
+    get-section "Table of Contents" | get-tree | select "Book/Topic1"
+    get-section "Topic Details" | get-button "Browse..." | click
+}
+with [get-window "Page Selection"] {
+    get-tree | select "MyProject/qqq.html"
+    get-button OK | click
+}
+with [get-editor "TOC.xml"] {
+    get-section "Topic Details" | get-button "Browse..." | key-type "M1+s"
+    get-section "Table of Contents" | get-tree | select "Book/Topic1"
+    get-section "Topic Details" | get-link "Location:" | click
+}
+with [get-tab-folder -index 1] {
+    get-property tabCount | equals 2 | verify-true
+    get-property activePage | equals ".*qqq.html" | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

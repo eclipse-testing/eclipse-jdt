@@ -1,0 +1,43 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
+Element-Name: TOC_Change Topic Name
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _J57IwEW5EeKNvvkG60C7-A
+Save-Time: 12/14/12 1:42 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open TOC file;
+2. Select any topic and edit its name in "Name:" field;
+3. Save and reopen - verify that your changes have been saved;
+4. Verify Outline view for your changes. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+with [get-editor "TOC.xml"] {
+    get-section "Table of Contents" | get-tree | select "Book/Topic1"
+    with [get-section "Topic Details" | get-editbox -after [get-label "Name:*"]] {
+        set-text "Topic1_new"
+        key-type "M1+s"
+    }
+    close
+}
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | select "Book/Topic1_new"
+get-editor "TOC.xml" | get-section "Topic Details" | get-editbox -after [get-label "Name:*"] | get-property text 
+    | equals "Topic1_new" | verify-true
+get-view Outline | get-tree | get-item "Definition/Book/Topic1_new" | get-property caption | equals "Topic1_new" 
+    | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

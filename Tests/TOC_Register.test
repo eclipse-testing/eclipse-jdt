@@ -1,0 +1,34 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
+Element-Name: TOC_Register
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _KRBjsEXFEeKNvvkG60C7-A
+Save-Time: 12/14/12 3:09 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open TOC file;
+2. Click "Register this table of contents" link;
+3. Make sure that "Register Table of Contents" dialog apears with "Make this a primary TOC" option checked. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+get-editor "TOC.xml" | get-link "Register this table of contents" | click
+with [get-window "Register Table of Contents" | get-button "Make this a primary table of contents"] {
+    get-property caption | equals "Make this a &primary table of contents" | verify-true
+    get-property selected | equals true | verify-true
+}
+get-window "Register Table of Contents" | get-button Cancel | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

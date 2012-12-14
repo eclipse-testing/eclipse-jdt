@@ -1,0 +1,44 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
+Element-Name: TOC_Remove Link
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _RC5rsEW7EeKNvvkG60C7-A
+Save-Time: 12/14/12 1:57 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open TOC file;
+2. select any Link and press Remove button;
+3. Make sure that link is removed. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+with [get-editor "TOC.xml" | get-section "Table of Contents"] {
+    get-tree | select "Book/Link"
+    get-button Remove | click
+}
+get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | verify-error{get-item "Book/Link"}
+get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | get-item Book | get-property childCount | equals 3 
+    | verify-true
+with [get-editor "TOC.xml"] {
+    get-link "Register this table of contents" | key-type "M1+s"
+    close
+}
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | select Book
+get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | get-item Book | get-property childCount | equals 3 
+    | verify-true
+    get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | verify-error{get-item "Book/Link"}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

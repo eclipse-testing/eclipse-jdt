@@ -1,0 +1,55 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
+Element-Name: TOC_Up/down button enablement
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _FgAswEW6EeKNvvkG60C7-A
+Save-Time: 12/14/12 1:49 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open TOC file;
+2. Select any topic;
+3. Move topic to the very top of the tree and make sure that UP button becomes disabled;
+4. Move topic to the very buttom - make sure that Down button becomes disabled. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | select "Book/Topic1"
+with [get-editor "TOC.xml" | get-section "Table of Contents"] {
+    get-button Up | get-property enablement | equals false | verify-true
+    get-button Down | get-property enablement | equals true | verify-true
+}
+with [get-editor "TOC.xml" | get-section "Table of Contents"] {
+    get-tree | select "Book/Topic1"
+    with [get-button Down] {
+        click
+        click
+    }
+    get-tree | select "Book/Topic1"
+}
+with [get-editor "TOC.xml" | get-section "Table of Contents"] {
+    get-button Up | get-property enablement | equals true | verify-true
+    get-button Down | get-property enablement | equals true | verify-true
+}
+with [get-editor "TOC.xml" | get-section "Table of Contents"] {
+    get-tree | select "Book/Topic1"
+    get-button Down | click
+}
+get-editor "TOC.xml" | get-section "Table of Contents" | get-tree | select "Book/Topic1"
+with [get-editor "TOC.xml" | get-section "Table of Contents"] {
+    get-button Down | get-property enablement | equals false | verify-true
+    get-button Up | get-property enablement | equals true | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

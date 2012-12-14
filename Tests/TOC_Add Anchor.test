@@ -1,0 +1,44 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
+Element-Name: TOC_Add Anchor
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _yrRJcEW7EeKNvvkG60C7-A
+Save-Time: 12/14/12 2:00 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open TOC file;
+2. Press "Add Anchor" button;
+3. Make sure that new anchor is added. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+get-editor "TOC.xml" | get-section "Table of Contents" | get-button "Add Anchor" | click
+with [get-editor "TOC.xml" | get-section "Table of Contents" | get-tree] {
+    get-item Book | get-property childCount | equals 5 | verify-true
+    get-item "Book/Anchor \\(1\\)" | get-property caption | equals "Anchor (1)" | verify-true
+}
+get-view Outline | get-tree | get-item "Definition/Book/Anchor \\(1\\)" | get-property caption | equals "Anchor (1)" 
+    | verify-true
+with [get-editor "TOC.xml"] {
+    get-section "Table of Contents" | get-button "Add Anchor" | key-type "M1+s"
+    close
+}
+get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
+with [get-editor "TOC.xml" | get-section "Table of Contents" | get-tree] {
+    get-item "Book/Anchor \\(1\\)" | get-property caption | equals "Anchor (1)" | verify-true
+    get-item Book | get-property childCount | equals 5 | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
