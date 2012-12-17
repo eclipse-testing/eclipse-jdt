@@ -1,0 +1,82 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Context-Type: com.xored.q7.workspace.context
+Element-Name: Java Project With Imported JUnit4 library
+Element-Type: context
+Element-Version: 2.0
+Id: _2bNLcEgXEeKue5y5RaR0CA
+Save-Time: 12/17/12 2:08 PM
+
+------=_contents/MyJavaProject/bin/Class1.class-2ca8e2c2-e9bc-31f8-ba21-5a0dc681b26f
+Content-Type: q7/binary
+Entry-Name: contents/MyJavaProject/bin/Class1.class
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnRtUttuElEUXYfCDIxTi1CKUlQUL0PV
+Yq2XGtQHG40kRE0wJMYXB5jgNHMhczHxn3zRB9po4gf4UcZ1ZkhQyiTn7D37rL323uuc339+/AKwj8cq
+MgLKoWOG4Z6KrEDxyPxsth3Tm7TfDI+sUcTjJ7ZnR88E1ozWQCB76I8tDWso6MhBEdjo2Z71OnaHVvDO
+HDqWQKnnj0xnYAa2/J8Hs9EnOxTI99JqHUZc0/YEtowPvUXVfhTY3qTTGmgQOKejhDIrh7ErkDO63VZX
+xis6tlBlZEowW8wa3aQ1M5iwRHkFn4AwubpcwwIuoaHi8n/T9r+EkeXquIKrrOfHZK2kNLbffivLkMky
+3Y6KawLV5QLPY9sZW0EeNwTUfuw27LChoQlDitQil7F6xiZu6biNO5TZnE4tbyxQ5zCnwHP+jsxo67iL
+PUoZ+emhwKZxOoXYfTxQcZ+KrBhEx0PZmJpI6PAetL4fByPrpS1v60x6S7sykZpQEsgvS4+Xzl3lX5tW
+0OZ2jpH/RicDjbuSBMnBXU8BtOu0BZzFxjz5gGh5puWLygmKJ9hcMGi0MqtA5IJFw3lcSFj4KOYsr4iU
+rSm17Y9P61+XGHQ2vJ4wNFIUathOBlFQp8cnQ1yJXoasfFJz1hfJoED1Oy7+RPN96foxbtZm2Jlhd4Z7
+y42WmVr5p9FqQikleJQgD/4CUEsHCBK475kIAgAAcQMAAFBLAQIUABQACAgIAAAAIQASuO+ZCAIAAHED
+AAAIAAAAAAAAAAAAAAAAAAAAAAAuY29udGVudFBLBQYAAAAAAQABADYAAAA+AgAAAAA=
+------=_contents/MyJavaProject/bin/Class1.class-2ca8e2c2-e9bc-31f8-ba21-5a0dc681b26f--
+------=_contents/MyJavaProject/.project-5fb530e8-2000-3cf7-9dfe-e44c0acf52f0
+Content-Type: q7/binary
+Entry-Name: contents/MyJavaProject/.project
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnR1UEEOwiAQPGviH5reBb15oPWg8WBi
+YqI+AGHT0BRogDb6e4FSm5p425md2Rkg+5dssh6MFVoV+RZt8gwU01yoqsgf99N6l+/L1ZK0RtfA3BEs
+M6J1Xu3ZBVFUQnl5n2lPr4OC4MiFJdNSgnIlweMU2HTJRoBn6NmJht9aYAElePBWqnhkUp42FQLWiNYC
+qrlDTBs/+ArRAGaq4B3UVF3ItgnjOUHwb0pixho+0nUGknoA/xsM+1Ag6uK56cD3ufNv/ABQSwcIEO2H
+O8MAAACFAQAAUEsBAhQAFAAICAgAAAAhABDthzvDAAAAhQEAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250
+ZW50UEsFBgAAAAABAAEANgAAAPkAAAAAAA==
+------=_contents/MyJavaProject/.project-5fb530e8-2000-3cf7-9dfe-e44c0acf52f0--
+------=_contents/MyJavaProject/.classpath-7949c477-0a37-3b6f-87a2-bf8c2ca21118
+Content-Type: q7/binary
+Entry-Name: contents/MyJavaProject/.classpath
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSdkE9rwkAQxc8t9DuEvTupUKiHxFBK
+BAONYBKvZd0dkrXrbNg/ot9eWxVFsAdv84bfvHm8JNuudbRB65ShlA3hlUVIwkhFbcqaejIYsWz88pwI
+zZ3rue8O4umikLzdRT+KZMqcFSz6XR7H+D4pDJ1JY1tAoVXvEFbSg+aBRHf4DsU8//6clfXHtMzn8S2n
+yKMlrkHiMrQQ1OkSLVSek+RWLr7qXY9xwTe8ygdDeH8w0iqQ8lA05bS+CvT2n5sJvg/+bLhU9Acn8XWL
+e1BLBwiO0kvVywAAAHsBAABQSwECFAAUAAgICAAAACEAjtJL1csAAAB7AQAACAAAAAAAAAAAAAAAAAAA
+AAAALmNvbnRlbnRQSwUGAAAAAAEAAQA2AAAAAQEAAAAA
+------=_contents/MyJavaProject/.classpath-7949c477-0a37-3b6f-87a2-bf8c2ca21118--
+------=_contents/MyJavaProject/.settings/org.eclipse.jdt.core.prefs-e811b780-e684-3dcc-bcb9-449f267cef9f
+Content-Type: q7/binary
+Entry-Name: contents/MyJavaProject/.settings/org.eclipse.jdt.core.prefs
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSVkD+LAyEQxftAvoqQKpVNioM7Qrjq
+elffLnPoKE8N5NvHJemz28gg85v3Bz5KqTCFmEGoRzV3sEpWezoeMheD98p/aMZnYjypSATHELBAjWgU
+xU/l5dGwflqomyLC1gPNcUH7ja7NmcmezHkr2bVXhGv2LtqRoYJ3fGZTieJG1i1KAVNfzBrw1tME2iEL
+uvZR5g2u1v4cZS1kJ1tzp8eX7AAL89BJxtVRRfsO0CazDNcgM7fS0J72si+zr0afUEsHCNF8eXK+AAAA
+VgIAAFBLAQIUABQACAgIAAAAIQDRfHlyvgAAAFYCAAAIAAAAAAAAAAAAAAAAAAAAAAAuY29udGVudFBL
+BQYAAAAAAQABADYAAAD0AAAAAAA=
+------=_contents/MyJavaProject/.settings/org.eclipse.jdt.core.prefs-e811b780-e684-3dcc-bcb9-449f267cef9f--
+------=_contents/MyJavaProject/src/Class1.java-386fd23f-1cc4-3b39-9cfa-d0e60dce0fdf
+Content-Type: q7/binary
+Entry-Name: contents/MyJavaProject/src/Class1.java
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnRtjsEKgzAMhs8KvkPw1KIIO2wX2clH
+6HHsUJ1IQas06WAM331NlY2xHZrQPx9fsvh2NB10o0aEhusBnlmapcmyTZA0hXafzQ0mbaxQ5IwdLlfQ
+bkDJcJLwW0JMAv0kjuVJyjpK1lh/bIEEJrnrMn5b+TbtUziDLtqaE9eTd5bDeofWf9p45HbH7vhI1QOp
+n6rZUxWJ0YpchSUGIYcist/uUF9QSwcIcdk+CaIAAAAdAQAAUEsBAhQAFAAICAgAAAAhAHHZPgmiAAAA
+HQEAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAANgAAAAAAA==
+------=_contents/MyJavaProject/src/Class1.java-386fd23f-1cc4-3b39-9cfa-d0e60dce0fdf--
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf
+Content-Type: q7/binary
+Entry-Name: .q7.content
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSVkl9PwjAUxd9N/A5N322BSDALkxjC
+AyjGkBh4M6W7G8WtHW1h49t7JxuoEf+8tb1nv3PvuesPyiwlO7BOGR3SNmtRAlqaSOkkpFsfX93Qwe3l
+RV+ajJXGQsQ2PVYY++pyISGYN6eh0R5KT8pMBUdcp8KhgXYBvod05X0ecF4UBTNZwoxN+GI6biTfWxy/
+4ljn73W+6fFjnYHEN0q0yFA7ETtBnqxZg/RkrvyKjLPcWA8RmTxr5a9JqpZW2D0lKgrpS2f5+CBHyWIE
+91vo7rszMWsN7yiRKQg7P/UQi9QBxSAIwShwVO3fL3jND26u7mC6r3qoW6C1CGWxSqHRMJkKh2S/ovyM
+oqZ+qps0wmQbhQPvcUvu5PGFgfFiOKnKHbB15FmVE3Ihdh+pvMae81kqfdZhWI3RPkzzH6az8jfmGkP8
+AdnnTeyHnfDTUqrzn/5V1L4BUEsHCAKTntxUAQAA/wIAAFBLAQIUABQACAgIAAAAIQACk57cVAEAAP8C
+AAAIAAAAAAAAAAAAAAAAAAAAAAAuY29udGVudFBLBQYAAAAAAQABADYAAACKAQAAAAA=
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf--
