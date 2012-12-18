@@ -1,0 +1,53 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_2bNLcEgXEeKue5y5RaR0CA
+Element-Name: JUnit_Select Test Method
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _YPXxMEkjEeKZ88Md6SyzKg
+Save-Time: 12/18/12 10:20 PM
+Tags: JDT/Java/JUnit
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open new test case wizard;
+2. Select Class1 as a test class;
+3. Press Next button;
+4. Select sum method as a test method;
+5. Press Finish;
+6. Make sure that public void testSum() method is added to a test case. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyJavaProject | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Java/JUnit/JUnit Test Case"
+    get-button "Next >" | click
+    get-editbox -after [get-label "Name:"] | set-focus
+}
+with [get-window "New JUnit Test Case"] {
+    get-editbox -after [get-label "Name:"] | set-text TC1
+    get-button "Browse..." -after [get-label "Class under test:"] | click
+    with [get-window "Class Under Test"] {
+       
+        get-editbox -after [get-label "Test stubs will be generated for class:"] | set-text Class1
+        get-table | select "Class1 - \\(default package\\)"
+        get-button OK | click
+    }
+    get-button "Next >" | click
+    get-tree | get-item "Class1/sum\\(int, int\\)" | check
+    get-button Finish | click
+}
+
+get-editor "TC1.java" | get-editbox | get-property text | contains "\tpublic void testSum() {\n"
+    + "\t\tfail(\"Not yet implemented\");\n" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
