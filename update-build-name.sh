@@ -1,9 +1,19 @@
 #!/bin/bash -xe
 
+if [[ "$1" == "INTEGRATION" ]]
+then
+    PREFIX="I"
+elif [[ "$1" == "NIGHTLY" ]]
+then
+    PREFIX="N"
+else
+    "Please use $0 {INTEGRATION,NIGHTLY}"
+fi
+
 LATEST=`curl -s http://download.eclipse.org/eclipse/downloads/ \
     | grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' \
     | sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//' \
-    | grep -e "I201[2-3]" \
+    | grep -e "${PREFIX}201[2-3]" \
     | grep -v testResults \
     | sed -e 's:^drops4/::' -e 's:/$::' \
     | sort -u \
@@ -18,7 +28,9 @@ echo "CURRENT=[$CURRENT]"
 
 MESSAGE="Updated build-name to $LATEST"
 
-if [[ "$LATEST" == "$CURRENT" ]]
+LOG=`git log "--grep=$MESSAGE" -1`
+
+if [[ -n "$LOG"  ]]
 then
     echo "Up to date"
 elif [[ -n "$LATEST" && -n "$CURRENT" ]]
