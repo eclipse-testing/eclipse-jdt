@@ -7,7 +7,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _jpfPYEm4EeKg4_g3GeIGMQ
-Save-Time: 12/19/12 4:36 PM
+Save-Time: 12/19/12 5:23 PM
 Tags: JDT/Java/JUnit
 Testcase-Type: ecl
 
@@ -33,9 +33,10 @@ with [get-window New] {
 with [get-window "New JUnit Test Suite"] {
     get-editbox -after [get-label "Name:"] | get-property text | equals AllTests | verify-true
     get-table | get-property itemCount | equals 3 | verify-true
+ get-editbox -after [get-label "Name:"] | set-text AllTests2
 }
 get-window "New JUnit Test Suite" | get-button Finish | click
-get-view "Package Explorer" | get-tree | get-item "MyJavaProject/src/\\(default package\\)/AllTests.java" 
-    | get-property caption | equals "AllTests.java" | verify-true
-get-tab-folder -index 1 | get-property activePage | equals "AllTests.java" | verify-true
+get-view "Package Explorer" | get-tree | get-item "MyJavaProject/src/\\(default package\\)/AllTests2.java" 
+    | get-property caption | equals "AllTests2.java" | verify-true
+get-tab-folder -index 1 | get-property activePage | equals "AllTests2.java" | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
