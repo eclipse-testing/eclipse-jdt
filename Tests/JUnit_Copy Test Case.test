@@ -1,0 +1,38 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_qQo_AEm3EeKg4_g3GeIGMQ
+Element-Name: JUnit_Copy Test Case
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _WW5X8Em4EeKg4_g3GeIGMQ
+Save-Time: 12/19/12 4:36 PM
+Tags: JDT/Java/JUnit
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click Test Case and select Copy;
+2. Paste a test case into the same folder;
+3. Make sure that Copy of Test Case was pasted. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Package Explorer" | get-tree] {
+    select "MyJavaProject/src/\\(default package\\)/TC1.java" | get-menu Copy | click
+    select "MyJavaProject/src/\\(default package\\)" | get-menu Paste | click
+}
+with [get-window "Name Conflict"] {
+    get-editbox -after [get-label "Enter a new name for \'TC1\':"] | set-focus
+    get-button OK | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyJavaProject/src/\\(default package\\)/CopyOfTC1.java" 
+    | get-property caption | equals "CopyOfTC1.java" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

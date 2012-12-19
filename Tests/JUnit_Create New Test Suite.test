@@ -1,0 +1,41 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_qQo_AEm3EeKg4_g3GeIGMQ
+Element-Name: JUnit_Create New Test Suite
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _jpfPYEm4EeKg4_g3GeIGMQ
+Save-Time: 12/19/12 4:36 PM
+Tags: JDT/Java/JUnit
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Select New/Java/JUnit/JUnit Test Suite;
+2. Name it and click Finish button;
+3. Make sure that test suite was created and its editor is opened. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyJavaProject | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Java/JUnit/JUnit Test Suite"
+    get-button "Next >" | click
+}
+with [get-window "New JUnit Test Suite"] {
+    get-editbox -after [get-label "Name:"] | get-property text | equals AllTests | verify-true
+    get-table | get-property itemCount | equals 3 | verify-true
+}
+get-window "New JUnit Test Suite" | get-button Finish | click
+get-view "Package Explorer" | get-tree | get-item "MyJavaProject/src/\\(default package\\)/AllTests.java" 
+    | get-property caption | equals "AllTests.java" | verify-true
+get-tab-folder -index 1 | get-property activePage | equals "AllTests.java" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

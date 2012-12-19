@@ -1,13 +1,13 @@
 --- Q7 testcase ---
 Format-Version: 1.0
 Q7-vendor: www.xored.com/q7
-Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_2bNLcEgXEeKue5y5RaR0CA
-Element-Name: JUnit_Set a Package
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_qQo_AEm3EeKg4_g3GeIGMQ
+Element-Name: JUnit_Test Suite_Select Package
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
-Id: _Sc2BYEmxEeKg4_g3GeIGMQ
-Save-Time: 12/19/12 4:35 PM
+Id: _x2m_8Em5EeKg4_g3GeIGMQ
+Save-Time: 12/19/12 4:37 PM
 Tags: JDT/Java/JUnit
 Testcase-Type: ecl
 
@@ -18,10 +18,10 @@ Entry-Name: .description
 TEST STEPS
 
 1. Create second package "abc";
-2. Open New JUnit Test Case wizard;
+2. Open New JUnit Test Suite wizard;
 3. Select abc as a package;
-4. Name Test Case and press Finish button;
-5. Make sure that Test Case was created in abc package.  
+4. Name Test Suite and press Finish button;
+5. Make sure that Test Suite was created in abc package.  
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
 Content-Type: text/ecl
@@ -34,20 +34,17 @@ with [get-window "New Java Package"] {
 }
 get-view "Package Explorer" | get-tree | select MyJavaProject | get-menu "New/Other..." | click
 with [get-window New] {
-    get-tree | select "Java/JUnit/JUnit Test Case"
+    get-tree | select "Java/JUnit/JUnit Test Suite"
     get-button "Next >" | click
-    get-editbox -after [get-label "Name:"] | set-focus
 }
-with [get-window "New JUnit Test Case"] {
-    get-editbox -after [get-label "Package:"] | click-text
+with [get-window "New JUnit Test Suite"] {
     get-button "Browse..." -after [get-label "(default)"] | click
     with [get-window "Package Selection"] {
         get-table | select abc
         get-button OK | click
     }
-    get-editbox -after [get-label "Name:"] | set-text TC1
     get-button Finish | click
 }
-get-view "Package Explorer" | get-tree | get-item "MyJavaProject/src/abc/TC1.java" | get-property caption 
-    | equals "TC1.java" | verify-true
+get-view "Package Explorer" | get-tree | get-item "MyJavaProject/src/abc/AllTests.java" | get-property caption 
+    | equals "AllTests.java" | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

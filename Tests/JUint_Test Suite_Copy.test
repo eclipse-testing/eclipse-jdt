@@ -1,0 +1,40 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_qQo_AEm3EeKg4_g3GeIGMQ
+Element-Name: JUint_Test Suite_Copy
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _ZS6gUEm8EeKg4_g3GeIGMQ
+Save-Time: 12/19/12 4:36 PM
+Tags: JDT/Java/JUnit
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click Test Suite and select Copy;
+2. Paste a test suite into the same folder;
+3. Make sure that Copy of Test Suite was pasted. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Package Explorer" | get-tree] {
+    select "MyJavaProject/src/\\(default package\\)/AllTests.java" | get-menu Copy | click
+    select "MyJavaProject/src/\\(default package\\)" | get-menu Paste | click
+}
+with [get-window "Name Conflict"] {
+    get-editbox -after [get-label "Enter a new name for \'AllTests\':"] | set-focus
+    get-button OK | click
+}
+get-view "Package Explorer" | get-tree | select "MyJavaProject/src/\\(default package\\)/CopyOfAllTests.java" 
+    | double-click
+get-editor "CopyOfAllTests.java" | get-editbox | get-property text | contains "@SuiteClasses({ TC1.class })\n"
+    | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

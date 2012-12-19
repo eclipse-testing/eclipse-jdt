@@ -1,0 +1,36 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_qQo_AEm3EeKg4_g3GeIGMQ
+Element-Name: JUnit_Rename Test Case
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _DtRKYEm4EeKg4_g3GeIGMQ
+Save-Time: 12/19/12 4:36 PM
+Tags: JDT/Java/JUnit
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Right-click jUnit Test Case and select "Refactor/Rename";
+2. Giva a new name and click  "Finish";
+3. Make sure that a test case was renamed. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyJavaProject/src/\\(default package\\)/TC1.java" 
+    | get-menu "Refactor/Rename..." | click
+with [get-window "Rename Compilation Unit"] {
+    get-editbox -after [get-label "New name:"] | set-text "TC1_new"
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | get-item "MyJavaProject/src/\\(default package\\)/TC1_new.java" 
+    | get-property caption | equals "TC1_new.java" | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
