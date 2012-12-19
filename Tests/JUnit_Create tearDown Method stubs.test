@@ -1,0 +1,41 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_2bNLcEgXEeKue5y5RaR0CA
+Element-Name: JUnit_Create tearDown Method stubs
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _XNLHYEmyEeKg4_g3GeIGMQ
+Save-Time: 12/19/12 3:05 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open New JUnit Test Case wizard;
+2. Check "tearDown" option;
+3. Name test case and press Finish;
+4. Make sure that tearDown method stubs were added. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyJavaProject | get-menu "New/Other..." | click
+with [get-window New] {
+    get-tree | select "Java/JUnit/JUnit Test Case"
+    get-button "Next >" | click
+    get-editbox -after [get-label "Name:"] | set-focus
+}
+with [get-window "New JUnit Test Case"] {
+    get-editbox -after [get-label "Name:"] | set-text TC1
+    get-button "tearDown()" | click
+    get-button Finish | click
+}
+get-editor "TC1.java" | get-editbox | get-property text | contains "\tpublic void tearDown() throws Exception {\n"
+   | verify-true
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
