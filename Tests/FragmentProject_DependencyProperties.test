@@ -1,0 +1,59 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_OSoocE2bEeKyEcNtP29uUQ
+Element-Name: FragmentProject_DependencyProperties
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _R--scE2dEeKyEcNtP29uUQ
+Save-Time: 12/24/12 2:44 PM
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Fragment Project Overview;
+2. Click on "Dependencies:" link;
+3. select C dependency and click "Properties..." button;
+4. Verify that C propertie window is opened with "Optional", "Reexport this dependency" properties, min/max versions to match and available versions to match. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "FP/META-INF/MANIFEST.MF" | double-click
+with [get-editor FP] {
+    get-section "Fragment Content" | get-link Dependencies | click
+    with [get-section "Required Plug-ins"] {
+        get-table | select "C \\(1.0.0\\)"
+        get-button "Properties..." | click
+    }
+}
+with [get-window C] {
+    with [get-group Properties] {
+        get-button Optional | get-property caption | equals "&Optional" | verify-true
+        get-button "Reexport this dependency" | get-property caption | equals "&Reexport this dependency" | verify-true
+    }
+    with [get-group "Version to match"] {
+        get-label "Minimum Version:" | get-property caption | equals "&Minimum Version:" | verify-true
+        get-label "Maximum Version:" | get-property caption | equals "Ma&ximum Version:" | verify-true
+        with [get-combo -after [get-label "Minimum Version:"]] {
+            get-property enablement | equals true | verify-true
+            get-property selection | equals Inclusive | verify-true
+        }
+        with [get-combo -after [get-label "Maximum Version:"]] {
+            get-property enablement | equals true | verify-true
+            get-property selection | equals Exclusive | verify-true
+        }
+    }
+    with [get-group "Available versions to match"] {
+        get-property caption | equals "Available versions to match" | verify-true
+        get-table | get-item "C \\(1.0.0.qualifier\\)" | get-property caption | equals "C (1.0.0.qualifier)" 
+            | verify-true
+    }
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
