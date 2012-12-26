@@ -7,7 +7,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _hOKZMEp4EeKNr-dR68Nq9w
-Save-Time: 12/24/12 1:49 PM
+Save-Time: 12/26/12 1:25 PM
 Tags: JDT/Plug-in Development/Fragment Project
 Testcase-Type: ecl
 
@@ -19,11 +19,11 @@ TEST STEPS
 
 1. Open new Fragment Project wizard;
 2. Set Project name and host plugin and click Finish;
-3. Verify that src source folder, .settings and .classpath were created;
+3. Verify that src source folder, was created;
 4. Open new Fragment Project wizard;
 5. Uncheck "Create Java Project" option;
 6. Name project and set host plug-in and click Finish;
-7. Make sure that no src source folder, .settings and .classpath were created. 
+7. Make sure that no src source folder was created. 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
 Content-Type: text/ecl
@@ -76,12 +76,8 @@ with [get-window "New Fragment Project"] {
 }
 with [get-view "Package Explorer" | get-tree] {
     get-item "FP/src" | get-property caption | equals src | verify-true
-    get-item "FP/.settings" | get-property caption | equals ".settings" | verify-true
-    get-item "FP/.classpath" | get-property caption | equals ".classpath" | verify-true
-}
+  }
 with [get-view "Package Explorer" | get-tree] {
     verify-error{get-item "FP2/src"} 
-    verify-error{get-item "FP2/.settings"} 
-    verify-error{get-item "FP2/.classpath"} 
-}
+   }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
