@@ -1,0 +1,61 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_OSoocE2bEeKyEcNtP29uUQ
+Element-Name: FragmentProject_Add Exported Package
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _yiHNEE81EeKkttKG-9rxEg
+Save-Time: 12/26/12 3:38 PM
+Tags: JDT/Plug-in Development/Fragment Project
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Fragment Project Manifest.mf, go to Runtime tab;
+2. Press Add button - make sure that no packages are shown;
+3. Create new package in FP with a class;
+4. Try to add this package as exported package - make sure that you can do it. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "FP/META-INF/MANIFEST.MF" | double-click
+with [get-editor FP] {
+    get-tab-folder | get-tab-item Runtime | click
+    get-section "Exported Packages" | get-button "Add..." | click
+}
+get-window "Exported Packages" | get-table | get-property itemCount | equals 0 | verify-true
+get-window "Exported Packages" | get-button Cancel | click
+get-view "Package Explorer" | get-tree | select FP | get-menu "New/Package" | click
+with [get-window "New Java Package"] {
+    get-editbox -after [get-label "Name:"] | set-text qqq
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | select "FP/src/qqq" | get-menu "New/Class" | click
+with [get-window "New Java Class"] {
+    get-editbox -after [get-label "Name:"] | set-text ccc
+    get-button "public static void main(String[] args)" | click
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | select "FP/META-INF/MANIFEST.MF" | double-click
+with [get-editor FP] {
+    get-section "General Information" | get-editbox -after [get-label "ID:"] | set-focus
+    get-tab-folder | get-tab-item Runtime | click
+    get-section "Exported Packages" | get-button "Add..." | click
+}
+with [get-window "Exported Packages"] {
+    get-table | select qqq
+    get-button OK | click
+}
+with [get-editor FP | get-section "Exported Packages" | get-table] {
+    get-property itemCount | equals 1 | verify-true
+    get-item qqq | get-property caption | equals qqq | verify-true
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
