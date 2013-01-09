@@ -7,7 +7,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _qNBO0DO0EeKWyKj1hZOy8A
-Save-Time: 12/18/12 1:26 PM
+Save-Time: 1/9/13 1:29 PM
 Tags: JDT/Plug-in Development/Plug-in Project/Templates
 Testcase-Type: ecl
 
@@ -44,7 +44,6 @@ with [get-view "Package Explorer" | get-tree] {
     get-item "MyProject/src/myproject.builder/qqq.java" | get-property caption | equals "qqq.java" | verify-true
     get-item "MyProject/src/myproject.builder/SampleBuilder.java" | get-property caption | equals "SampleBuilder.java" 
         | verify-true
-    get-item "MyProject/src/myproject.builder/ToggleNatureAction.java" | get-property caption 
-        | equals "ToggleNatureAction.java" | verify-true
+    
 }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
