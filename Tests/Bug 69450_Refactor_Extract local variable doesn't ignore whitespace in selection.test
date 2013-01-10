@@ -1,0 +1,56 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_1cIkEFrvEeKQOICDiEIFyw
+Element-Name: Bug 69450_Refactor/Extract local variable doesn't ignore whitespace in selection
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=69450
+Id: _urfzMVruEeKQOICDiEIFyw
+Save-Time: 1/10/13 1:39 PM
+Tags: JDT/UI/Refactoring
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Open Class1.java editor;
+2. Select getPattern(); (including semicolon) and choose "Refactoring/Extract Local Variable" command in a context menu;
+3. Make sure that "Extract Local Variable" window is shown with Variable name filed;
+4. Close window and select getPattern() (excluding semicolon) and choose "Refactoring/Extract Local Variable" command;
+5. Make sure that "Extract Local Variable" window is shown and no "An expression must be selected to activate this refactoring" message appears. 
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java" | double-click
+with [get-editor "Class1.java" | get-text-viewer] {
+    set-caret-pos 8 5
+    select-range 8 4 8 17
+    get-menu "Refactor/Extract Local Variable..." | click
+}
+with [get-window "Extract Local Variable"] {
+    get-editbox -after [get-label "Variable name:"] | set-text pattern2
+    get-button "Preview >" | click
+    get-button Cancel | click
+}
+with [get-editor "Class1.java" | get-text-viewer] {
+    set-caret-pos 8 5
+    select-range 8 4 8 16
+    get-menu "Refactor/Extract Local Variable..." | click
+}
+with [get-window "Extract Local Variable"] {
+    get-editbox -after [get-label "Variable name:"] | set-focus
+    with [get-button "Declare the local variable as \'final\'"] {
+        click
+        click
+    }
+    get-editbox -after [get-label "Variable name:"] | set-text pattern2
+    get-button "Preview >" | click
+    get-button Cancel | click
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
