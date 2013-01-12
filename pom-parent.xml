@@ -9,7 +9,7 @@
 
   <properties>
     <q7-server-uri>cloud.xored.com</q7-server-uri>
-    <q7-version>1.2.12-SNAPSHOT</q7-version>
+    <q7-version>1.2.14-SNAPSHOT</q7-version>
     <build-name>N20130111-2000</build-name>
     <sdk-file>eclipse-SDK-${build-name}-win32.zip</sdk-file>
     <sdk-url>http://eclipse.org</sdk-url>
