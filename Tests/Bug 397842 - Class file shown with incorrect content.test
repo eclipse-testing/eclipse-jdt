@@ -1,0 +1,46 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _YQzZwF8KEeKB2P4fSCY9FA,_dQElkV8JEeKB2P4fSCY9FA
+Element-Name: Bug 397842 - Class file shown with incorrect content
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=397842
+Id: _c-ih8F8PEeKQ5uXvQm_5uw
+Save-Time: 1/15/13 7:44 PM
+Tags: Bugzilla/397842
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Modify X.java e.g. add new method.
+2. Build project, X.class is regenerated.
+3. Open X.class.
+4. Make sure that ClassFileEditor is opened for X.class showing actual content of X.java.
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Project Explorer" | get-tree | select "sample/X.java" | double-click
+with [get-editor "X.java" | get-text-viewer] {
+    set-caret-pos 3 1
+    type-text main
+    key-type "M1+SPACE"
+    key-type Enter
+}
+get-button "Save (M1+S)" | click
+get-editor "X.java" | close
+get-menu "Project/Build Automatically" | uncheck
+get-menu "Project/Build Project" | click
+get-view "Project Explorer" | get-tree | select "sample/X.class" | double-click
+get-editor "X.class" | get-editbox | get-property text | equals "public class X {\n"
+    + "public static void main(String[] args) {\n"
+    + "\t\n}\n"
+    + "}" | verify-true
+get-editor "X.class" | close
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

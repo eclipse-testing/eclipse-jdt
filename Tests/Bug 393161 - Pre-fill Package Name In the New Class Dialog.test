@@ -1,0 +1,44 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z5fh0C1lEeKgx4EWM9YkNw
+Element-Name: Bug 393161 - Pre-fill Package Name In the New Class Dialog
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=393161
+Id: _0qCY0F8NEeKQ5uXvQm_5uw
+Save-Time: 1/15/13 7:24 PM
+Tags: Bugzilla/393161
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Create new package
+2. Create new class in this package
+3. Make sure that package name is prefilled in the new class dialog
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "New/Package" | click
+with [get-window "New Java Package"] {
+    get-editbox -after [get-label "Name:"] | set-text NewPackage
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | select "MyProject/src/NewPackage" | get-menu "New/Class" | click
+get-window "New Java Class" | get-editbox -after [get-label "Name:"] | set-focus
+with [get-window "New Java Class"] {
+    get-editbox -after [get-label "Package:"] | get-property text | equals NewPackage | verify-true
+    get-button "Browse..." -after [get-label "Package:"] | get-property enablement | equals true | verify-true
+}
+with [get-window "New Java Class"] {
+    get-editbox -after [get-label "Name:"] | set-focus
+    get-button Cancel | click
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
