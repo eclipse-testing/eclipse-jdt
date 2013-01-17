@@ -1,0 +1,34 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z5fh0C1lEeKgx4EWM9YkNw
+Element-Name: Bug 395007 - [package explorer] Refresh action not available on Java package folders
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=395007
+Id: _agRpEGBqEeKfLZgLpniOqA
+Save-Time: 1/17/13 12:58 PM
+Tags: Bugzilla/395007
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Create a package
+2. Make sure that Refresh is enabled in context menu for package in Package explorer and in File menu, when package is selected
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select MyProject | get-menu "New/Package" | click
+with [get-window "New Java Package"] {
+    get-editbox -after [get-label "Name:"] | set-text p
+    get-button Finish | click
+}
+get-view "Package Explorer" | get-tree | select "MyProject/src/p" | get-menu Refresh | click
+get-menu "File/Refresh" | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

@@ -1,0 +1,50 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw
+Element-Name: Bug 77632 - [quick assist] concatenate/merge string literals
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=77632
+Id: _-bya4GB6EeKfLZgLpniOqA
+Save-Time: 1/17/13 2:58 PM
+Tags: Bugzilla/77632
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Add String s= "Ec" + "lip" + "se";
+2. Make sure that "Combine selected strings" offers a quick assist to join strings into
+"Eclipse"
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "MyProject/src/\\(default package\\)/Class1.java" | double-click
+with [get-editor "Class1.java" | get-text-viewer] {
+    set-caret-pos 3 1
+    type-text "String s = \"ecl\"+\"ip"
+    key-type Right
+    type-text "+\"se"
+    key-type Right
+    type-text ";"
+    key-type "M1+M2+s"
+    set-caret-pos 3 13
+    select-range 3 12 3 27
+    key-type "M1+1"
+    key-type Down -times 2
+    key-type Enter
+}
+get-editor "Class1.java" | get-editbox | get-property text | equals "public class Class1 {\n"
+    + "String s = \"eclipse\";\n"
+    + "}" | verify-true
+with [get-editor "Class1.java" | get-text-viewer] {
+    key-type "M1+M2+s"
+    key-type "M1+M2+w"
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
