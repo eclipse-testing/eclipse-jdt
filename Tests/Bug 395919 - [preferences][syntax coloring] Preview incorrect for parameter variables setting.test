@@ -1,0 +1,39 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z5fh0C1lEeKgx4EWM9YkNw
+Element-Name: Bug 395919 - [preferences][syntax coloring] Preview incorrect for parameter variables setting
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=395919
+Id: _YCIpUGCDEeKfLZgLpniOqA
+Save-Time: 1/17/13 3:58 PM
+Tags: Bugzilla/395919
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Go to Syntax Coloring [Window -> Preferences -> Java -> Editor -> Syntax Coloring]
+2. Enable coloring of parameter variables [Java -> Parameter variables]
+3. Turn on strike-through.
+4. Check in Preview that the parameter declaration and a reference to the parameter have changed
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-preferences-menu | click
+with [get-window Preferences] {
+    get-tree | select "Java/Editor/Syntax Coloring"
+    get-tree -after [get-label "Element:"] | select "Java/Parameter variables"
+    get-button Enable | click
+    get-button Strikethrough | click
+}
+get-window Preferences | get-editbox -after [get-label "Preview:"] | get-property "styles.strikeout" -index 73 
+    | equals true | verify-true
+get-window Preferences | get-button Cancel | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

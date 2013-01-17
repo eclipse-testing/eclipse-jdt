@@ -1,0 +1,53 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_bi-PsF-7EeKHsp5FeNFQDw
+Element-Name: Bug 394950 - [infer type arguments] AssertionFailedException when there is only an array field
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=394950
+Id: _ZFV9UGCEEeKfLZgLpniOqA
+Save-Time: 1/17/13 4:15 PM
+Tags: Bugzilla/394950
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Create a class
+class InferGenericTypeArgumentsBug1 {
+    public int[] data;
+}
+2. Invoke "Infer Generic Type Arguments"
+3. Make sure that there is no exceptions in the log
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "JavaProject/src/example" | get-menu "New/Class" | click
+with [get-window "New Java Class"] {
+    get-editbox -after [get-label "Name:"] | set-text Class
+    get-button Finish | click
+}
+with [get-editor "Class.java" | get-text-viewer] {
+    set-caret-pos 4 1
+    select-range 5 2 3 1
+    key-type Del
+    type-text "class InferGenericTypeArgumentsBug1 {"
+    key-type Enter
+    type-text "public int [] data;"
+    key-type "M1+M2+s"
+}
+clear-log-view
+with [get-editor "Class.java" | get-text-viewer] {
+    set-caret-pos 3 3
+    get-menu "Refactor/Infer Generic Type Arguments..." | click
+}
+get-window "Infer Generic Type Arguments" | get-button OK | click
+get-log -levels Error | length | eq 0 | assert-true -message "There are errors in log"
+get-editor "Class.java" | close
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
