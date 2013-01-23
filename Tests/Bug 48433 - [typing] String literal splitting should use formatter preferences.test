@@ -1,0 +1,47 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_bi-PsF-7EeKHsp5FeNFQDw
+Element-Name: Bug 48433 - [typing] String literal splitting should use formatter preferences
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=48433
+Id: _KVfPwGU8EeKlr76VResStA
+Save-Time: 1/23/13 5:52 PM
+Tags: Bugzilla/48433
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Hit carriage return in the Java editor within a string
+2. Make sure that plus sign was added at the next line
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-view "Package Explorer" | get-tree | select "JavaProject/src/example/Main.java" | double-click
+with [get-editor "Main.java" | get-text-viewer] {
+    set-caret-pos 12 6
+    key-type Enter
+    type-text "String myString = \"This is a java string"
+    set-caret-pos 13 46
+    type-text ";"
+    set-caret-pos 15 1
+}
+get-button "Save (M1+S)" | click
+with [get-editor "Main.java" | get-text-viewer] {
+    set-caret-pos 13 33
+    key-type Enter
+}
+with [get-editor "Main.java" | get-editbox | get-property text] {
+	contains "\tString myString = \"This is a\"\n" | verify-true
+    contains "\t\t\t+ \" java string\";\n" | verify-true
+}
+get-eclipse-window | key-type "M1+M2+s"
+get-eclipse-window | key-type "M1+M2+w"
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
