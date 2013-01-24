@@ -1,0 +1,81 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Context-Type: com.xored.q7.workspace.context
+Element-Name: 393829
+Element-Type: context
+Element-Version: 2.0
+Id: _qa8_AWX6EeKCHPrUuF8-Uw
+Save-Time: 1/24/13 2:55 PM
+
+------=_contents/JavaProject/src/ChangeMethodSignatureBug.java-54479252-5556-3862-90e3-1ac480661187
+Content-Type: q7/binary
+Entry-Name: contents/JavaProject/src/ChangeMethodSignatureBug.java
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnTj5SooTcrJTFZIzkksLlZwzkjMS0/1
+TS3JyE8JzkzPSywpLUp1Kk1XqObl4uVSAAKoclwKNfyTslKTSxTyk7I0QZpAWmrR9JblZ6Yo5GrA5UEg
+L7Uct5kgSYi5qJrQzUyE2V6QWGSoo4DgGGFoq0VwazWt4e6sBQBQSwcI0y/hIngAAAAQAQAAUEsBAhQA
+FAAICAgAAAAhANMv4SJ4AAAAEAEAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEA
+NgAAAK4AAAAAAA==
+------=_contents/JavaProject/src/ChangeMethodSignatureBug.java-54479252-5556-3862-90e3-1ac480661187--
+------=_contents/JavaProject/.classpath-73c8658f-115b-3204-b18f-3bc3799e0d87
+Content-Type: q7/binary
+Entry-Name: contents/JavaProject/.classpath
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSzsa/IzVEoSy0qzszPs1Uy1DNQUkjN
+S85PycxLt1UKDXHTtVCyt+PlsknOSSwuLkgsyQByOBG81LySokqF7My8FFul4qJkJQWQIISpj1tlcn4e
+TGV+UbpeanJOZkFxql5WSoleTmJpXnIG0HY9ryDXeGd/vxBHTz/XIHym5ZeWFJSWwAxMyswDK7bRR3Yy
+AFBLBwj1M9tAjwAAAOgAAABQSwECFAAUAAgICAAAACEA9TPbQI8AAADoAAAACAAAAAAAAAAAAAAAAAAA
+AAAALmNvbnRlbnRQSwUGAAAAAAEAAQA2AAAAxQAAAAAA
+------=_contents/JavaProject/.classpath-73c8658f-115b-3204-b18f-3bc3799e0d87--
+------=_contents/JavaProject/bin/ChangeMethodSignatureBug.class-205f4845-6cae-3edd-ad83-01e4e127ef6f
+Content-Type: q7/binary
+Entry-Name: contents/JavaProject/bin/ChangeMethodSignatureBug.class
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnR1kM9Kw0AQxr9Jk6bGaGq1Vas9CB5a
+DxbxWPVgQRCiHioFj5t2aVPSBPLH9/JUsOAD+FDibFo8VLILs7Oz3/ebYb9/Pr8AXOPUhEY46k9FOJFP
+Mp1G44E/CUWaxfI+m5jQCdWZeBfdgBXdF28mRymhfOOHfnpHqLfdzddeZ0jQ+9FYWihhy4YBi1Bqq7Lj
++qF8zuaejF+FF0hCzY1GIhiK2Ff3dVFPp35CaLpFc/UYGHkzZf/XnkBzE/tsL3KfX1mooa4maxBa7eI2
+naEF/h6lLBOsQZTFI/ngqxlbRaZLNRHBfgxDGfcDkSQywRljSlBL44xpHE2+3fKp8WlcLFD5yJ+3OVp5
+UedtwOassRJhB7s5xICDKlsJe7D+UDpngLMELVF7Y+LBAoeb0Aoj7Bxqr+RrqIbjPDZxkmv5b/NW+AVQ
+SwcI9WC4FUEBAAAsAgAAUEsBAhQAFAAICAgAAAAhAPVguBVBAQAALAIAAAgAAAAAAAAAAAAAAAAAAAAA
+AC5jb250ZW50UEsFBgAAAAABAAEANgAAAHcBAAAAAA==
+------=_contents/JavaProject/bin/ChangeMethodSignatureBug.class-205f4845-6cae-3edd-ad83-01e4e127ef6f--
+------=_contents/JavaProject/bin/ChangeMethodSignatureBug$1.class-caad7bbc-2473-31c7-81dc-52af1d6a66ec
+Content-Type: q7/binary
+Entry-Name: contents/JavaProject/bin/ChangeMethodSignatureBug$1.class
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnR1UVtLAkEU/o6aq7blZjczLR+ErCCz
+XgKjICkIrB4M30cddGXdjb30v3qIoId+QD8qOjMKQbILs/vNd5lz5uz3z+cXgHNUDSQIpfZYuCP5IMOx
+N+zaI1eEkS9volGtaSBFsCbiVTQc9jSe+hM5CAnpcGwHtVPOduLCLXZd2q4dXhEq9XjbYY+QantDmQVh
+2cQS0jkksWLCwCohWVeGfMd25WM07Uv/WfQdSSh0vIFwesK31X5OplRbhHJstVqT2yJBOKh3/t+qtcjo
+3l6E31T1FtSZdkbIdb3IH8g7W/VQiat9og7gq9y6A8cLbHc0sxgoE4pxIRN7ago0JZj3riv9tiOCQAao
+8rSS/BPJstTIGCV4Gcgwn2V0wXvF5I6O3/n1AfNNe/KK0wpxLgOLkclYsWsoaH4dG/NTrnnpKn/h9Nys
+gtWZOA8qtIktrRO2GSVYL+rkDkr8TWEXFezrPGkfP79QSwcIimAKLWIBAACOAgAAUEsBAhQAFAAICAgA
+AAAhAIpgCi1iAQAAjgIAAAgAAAAAAAAAAAAAAAAAAAAAAC5jb250ZW50UEsFBgAAAAABAAEANgAAAJgB
+AAAAAA==
+------=_contents/JavaProject/bin/ChangeMethodSignatureBug$1.class-caad7bbc-2473-31c7-81dc-52af1d6a66ec--
+------=_contents/JavaProject/.project-d0da3269-a366-3d3e-b16a-1bfa22a81fd0
+Content-Type: q7/binary
+Entry-Name: contents/JavaProject/.project
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnR1ULsOwiAUnTXxHxp2i24OtA4aBycT
+9QMQbhqa8gjQxs8XKLWpids9597zAHJ8y64YwDqhVYX25Q4VoJjmQjUVej4u2wM61ps1MVa3wPwZHLPC
++HAd2BVRVEJ9pQO9jXuCExNXTEsJytcET1Nks49LAC/QqxcdvxtgEWV4ClKqeGJymrZNCawTxkHZcl8y
+bcMQKiQB2LlCUFDb9DHbZYyXBMG/KZmZaoRI31vI1yP432DcxwLpLtnNBt/nLj/xA1BLBwgw2/LcvwAA
+AIMBAABQSwECFAAUAAgICAAAACEAMNvy3L8AAACDAQAACAAAAAAAAAAAAAAAAAAAAAAALmNvbnRlbnRQ
+SwUGAAAAAAEAAQA2AAAA9QAAAAAA
+------=_contents/JavaProject/.project-d0da3269-a366-3d3e-b16a-1bfa22a81fd0--
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf
+Content-Type: q7/binary
+Entry-Name: .q7.content
+
+UEsDBBQACAgIAAAAIQAAAAAAAAAAAAAAAAAIAAAALmNvbnRlbnSVUstuwjAQvFfqP1hWr9gFpBKipKhF
+rfoQElKF4Fa5zpKYJjY4Dsnnd4EE+qKiN+/O7Mw+HAyqLCVrsLkyOqRtdkkJaGkipeOQFm7e8ujg+vws
+kCZjlbEQsVWPlca+50shwZ82r6HRDipHqkz5e7nORg4NdO5jPqSJc0uf87IsmcliZmzMZ6PHhvK7xb6K
+I863OF/1+B5nIDFHiRYZcrv9rtfpU6KikL6uhPd6M51d3cHz8GFsJ8W915qUlMgUhJ0eDOYizYHilITg
+nDiHdtsAw6U1C5Aur+WfxFqMdylaU5A0Vyk0DCZTkaOuSyg/wqg1v+AmjXBpNeNN6YP6t+phInQMI3CJ
+iV5UrIUrLNwW8UV75/xJ9cTKH3UBr9s51l9u5b/7Ywtc3R8mAW9WvbsDPxxi8z7p8yH3A1BLBwjFnShl
+OgEAANACAABQSwECFAAUAAgICAAAACEAxZ0oZToBAADQAgAACAAAAAAAAAAAAAAAAAAAAAAALmNvbnRl
+bnRQSwUGAAAAAAEAAQA2AAAAcAEAAAAA
+------=_.q7.content-3d2e0690-ce48-3609-83e0-c704d49f1eaf--

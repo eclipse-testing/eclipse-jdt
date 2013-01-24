@@ -1,0 +1,43 @@
+--- Q7 testcase ---
+Format-Version: 1.0
+Q7-vendor: www.xored.com/q7
+Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_qa8_AWX6EeKCHPrUuF8-Uw
+Element-Name: Bug 393829 - [change method signature] Precondition fails with exception when applying refactoring on a method of an anonyous class passed as argument
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _eExQAGX7EeKCHPrUuF8-Uw
+Save-Time: 1/24/13 2:59 PM
+Tags: Bugzilla/393829
+Testcase-Type: ecl
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+TEST STEPS
+
+1. Invoke "Change Method Signature" on method "a"
+2. Reorder parameters "par1" and "par2" (i.e., put "par1" "Down")
+3. Make sure that no exception was thrown
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+clear-log-view
+get-view "Package Explorer" | get-tree 
+    | select "JavaProject/src/\\(default package\\)/ChangeMethodSignatureBug.java/ChangeMethodSignatureBug/m\\(\\) : void/new Object\\(\\) {...}/a\\(Object, Object\\) : void" 
+    | get-menu "Refactor/Change Method Signature..." | click
+with [get-window "Change Method Signature"] {
+    get-button Down | click
+    get-button OK | click
+}
+get-log -levels Error | length | eq 0 | assert-true
+get-view "Package Explorer" | get-tree | select "JavaProject/src/\\(default package\\)/ChangeMethodSignatureBug.java" 
+    | double-click
+get-editor "ChangeMethodSignatureBug.java" | get-editbox | get-property text  | contains "            public void a(Object par2, Object par1) {\n"
+	| verify-true
+get-eclipse-window | key-type "M1+M2+s"
+get-eclipse-window | key-type "M1+M2+w"
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
