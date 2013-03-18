@@ -7,7 +7,7 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _9a3pgEBGEeKNqPSkY0DPCQ
-Save-Time: 12/18/12 1:45 PM
+Save-Time: 3/18/13 1:27 PM
 Tags: JDT/User Assistance/Cheat Sheet
 Testcase-Type: ecl
 
@@ -35,8 +35,9 @@ with [get-editor "CompositeCheatSheet.xml" | get-section Content] {
 get-editor "CompositeCheatSheet.xml" | get-section Content| get-tree | verify-error{select "Title/Group/Set Group"}
 get-editor "CompositeCheatSheet.xml" | get-section Content | get-tree | get-item "Title/Group" 
     | get-property childCount | equals 4 | verify-true
+get-button "Save (M1+S)" | click
 with [get-editor "CompositeCheatSheet.xml"] {
-    get-section Content | get-button Down | key-type "M1+s"
+    
     close
 }
 get-view "Package Explorer" | get-tree | select "MyProject/CompositeCheatSheet.xml" | double-click
