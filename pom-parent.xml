@@ -10,7 +10,7 @@
   <properties>
     <q7-server-uri>cloud.xored.com</q7-server-uri>
     <q7-version>1.2.14-SNAPSHOT</q7-version>
-    <build-name>I20130520-2000</build-name>
+    <build-name>I20130521-2000</build-name>
     <sdk-file>eclipse-SDK-${build-name}-win32.zip</sdk-file>
     <sdk-url>http://download.eclipse.org</sdk-url>
     <sdk-path>eclipse/downloads/drops4/${build-name}/eclipse-SDK-${build-name}-win32.zip</sdk-path>
