@@ -1,14 +1,14 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw,_Z27WAC1lEeKgx4EWM9YkNw
 Element-Name: Content Assist
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _W_gc8C1lEeKgx4EWM9YkNw
-Save-Time: 12/18/12 1:25 PM
-Tags: JDT/Java/Class/Content Assist
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/14/17 3:08 PM
+Tags: JDT/Java/Class/Content Assist, skipExecution
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
@@ -37,8 +37,8 @@ with [get-editor "Class1.java"] {
     with [get-text-viewer] {
         set-caret-pos 3 1
         type-text "\tpublic static void main(String[] args) {\n"
-        type-text "System.out.printl"
-        key-type "CTRL+SPACE"
+        type-text "System.out. "
+        key-type "M1+SPACE"
         key-type Down -times 9
         key-type Enter
         type-text "\"Hello\""

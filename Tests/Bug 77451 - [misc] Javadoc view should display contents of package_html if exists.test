@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_bi-PsF-7EeKHsp5FeNFQDw
 Element-Name: Bug 77451 - Javadoc view should display contents of package.html if exists
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=77451
 Id: _iH_b4F-7EeKHsp5FeNFQDw
-Save-Time: 1/16/13 4:08 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/10/17 2:52 PM
 Tags: Bugzilla/77451
 Testcase-Type: ecl
 
@@ -40,5 +40,5 @@ with [get-editor "package.html" | get-text-viewer] {
 }
 get-menu "Window/Show View/Javadoc" | click
 get-view "Package Explorer" | get-tree | select "JavaProject/src/example"
-get-view Javadoc | get-control Browser | get-property text | contains "<P><B>test</B></P></BODY></HTML>" | verify-true
+get-view Javadoc | get-control Browser | get-property plainText | contains test | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

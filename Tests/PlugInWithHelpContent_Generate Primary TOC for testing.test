@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g
 Element-Name: PlugInWithHelpContent_Generate Primary TOC for testing
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _w6SB8DO9EeKWyKj1hZOy8A
-Save-Time: 12/18/12 1:26 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/15/17 11:31 AM
 Tags: JDT/Plug-in Development/Plug-in Project/Templates
 Testcase-Type: ecl
 
@@ -33,7 +33,9 @@ with [get-window "New Plug-in Project"] {
         click
         click
     }
-    get-table | select "Plug-in with sample help content"
+}
+with [get-window "New Plug-in Project"] {
+    get-table | select "Sample help content"
     get-button "Next >" | click
 }
 with [get-window "New plug-in project with sample help content"] {
@@ -52,7 +54,9 @@ with [get-window "New Plug-in Project"] {
         click
         click
     }
-    get-table | select "Plug-in with sample help content"
+}
+with [get-window "New Plug-in Project"] {
+    get-table | select "Sample help content"
     get-button "Next >" | click
 }
 with [get-window "New plug-in project with sample help content"] {

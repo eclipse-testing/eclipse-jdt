@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
 Element-Name: TOC_Filter Search
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _mZGosEXFEeKNvvkG60C7-A
-Save-Time: 12/18/12 1:26 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/15/17 2:48 PM
 Tags: JDT/User Assistance/Help Table of Context
 Testcase-Type: ecl
 
@@ -26,7 +26,8 @@ Content-Type: text/ecl
 Entry-Name: .content
 
 get-view "Package Explorer" | get-tree | select "MyProject/TOC.xml" | double-click
-get-editor "TOC.xml" | get-section "Table of Contents" | get-editbox -index 1 | set-text anch
+get-editor "TOC.xml" | get-section "Table of Contents" | get-editbox 
+    -after [get-label "Edit the structure of this table of contents in the following section."] | set-text anch
 with [get-editor "TOC.xml" | get-section "Table of Contents" | get-tree] {
     get-item Book | get-property childCount | equals 1 | verify-true
     get-item "Book/Anchor" | get-property caption | equals Anchor | verify-true

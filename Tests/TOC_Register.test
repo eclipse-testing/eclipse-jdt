@@ -1,14 +1,14 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_MApMoEUUEeKZdf7PpPMhdg
 Element-Name: TOC_Register
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _KRBjsEXFEeKNvvkG60C7-A
-Save-Time: 12/18/12 1:26 PM
-Tags: JDT/User Assistance/Help Table of Context
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/15/17 2:55 PM
+Tags: JDT/User Assistance/Help Table of Context, skipExecution
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa

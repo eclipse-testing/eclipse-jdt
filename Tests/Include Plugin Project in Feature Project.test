@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_LEBSADePEeKmOu1iJSfk-g,_PNM7oDeUEeKmOu1iJSfk-g,_l4VYgDLuEeK0utYbRJbZ1g
 Element-Name: Include Plugin Project in Feature Project
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _7rQmADeTEeKmOu1iJSfk-g
-Save-Time: 12/18/12 1:26 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/14/17 5:14 PM
 Tags: JDT/Plug-in Development/Feature Project, JDT/Plug-in Development/Plug-in Project
 Testcase-Type: ecl
 
@@ -28,7 +28,7 @@ Entry-Name: .content
 get-view "Package Explorer" | get-tree | select "MyFeatureProject/feature.xml" | double-click
 with [get-editor MyFeatureProject] {
     get-section "General Information" | get-editbox -after [get-label "ID:"] | set-focus
-    get-tab-folder | get-tab-item "Plug-ins" | click
+    get-tab-folder | get-tab-item "Included Plug-ins" | click
     get-section "Plug-ins and Fragments" | get-button "Add..." | click
 }
 with [get-window "Plug-in Selection"] {

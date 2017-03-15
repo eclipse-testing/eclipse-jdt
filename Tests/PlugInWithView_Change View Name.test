@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g
 Element-Name: PlugInWithView_Change View Name
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _UDCkIDOtEeKWyKj1hZOy8A
-Save-Time: 12/18/12 1:26 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/15/17 1:04 PM
 Tags: JDT/Plug-in Development/Plug-in Project/Templates
 Testcase-Type: ecl
 
@@ -33,7 +33,9 @@ with [get-window "New Plug-in Project"] {
         click
         click
     }
-    get-table | select "Plug-in with a view"
+}
+with [get-window "New Plug-in Project"] {
+    get-table | select "View contribution using 3.x API"
     get-button "Next >" | click
 }
 with [get-window "New plug-in project with a sample view"] {
@@ -41,8 +43,6 @@ with [get-window "New plug-in project with a sample view"] {
     get-button Finish | click
 }
 with [get-editor MyProject] {
-    get-section "General Information" | get-editbox -after [get-label "ID:"] | set-focus
-    get-button "Show List" | click
     get-tab-folder | get-tab-item "plugin.xml" | click
 }
 get-editor MyProject | get-editbox | get-property text | contains "      <view\n"

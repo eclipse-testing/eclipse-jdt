@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z7cpoC1lEeKgx4EWM9YkNw
 Element-Name: Syntax coloring _ constants should be in blue color
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _Oz42cC_CEeK8x-jSBDzgRw
-Save-Time: 12/18/12 1:25 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/15/17 2:21 PM
 Tags: JDT/Java/Syntax Coloring 
 Testcase-Type: ecl
 
@@ -23,9 +23,10 @@ with [get-editor "Class1.java" | get-text-viewer] {
     key-type Left
     type-text constant
 }
-with [get-editor "Class1.java" | get-editbox] {
-    get-property "getStyleRanges().StyleRange[33].start" | equals 225 | verify-true
-    get-property "getStyleRanges().StyleRange[33].length" | equals 10 | verify-true
-    get-property "getStyleRanges().StyleRange[33].foreground" | equals "#2A00FF" | verify-true
+with [get-editor "Class1.java" | get-text-viewer] {
+    get-property "styles[51].start" | equals 225 | verify-true
+    get-property "styles[51].length" | equals 10 | verify-true
+    get-property "styles[51].text" | equals "\"constant\"" | verify-true
+    get-property "styles[51].foregroundColor" | equals "#2A00FF" | verify-true
 }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

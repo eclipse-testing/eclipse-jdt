@@ -1,14 +1,14 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_Z6EJkC1lEeKgx4EWM9YkNw,_Z27WAC1lEeKgx4EWM9YkNw
 Element-Name: Use Content Assist to Create Main Method
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _XD8RAC1lEeKgx4EWM9YkNw
-Save-Time: 12/18/12 1:25 PM
-Tags: JDT/Java/Content Assist
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/15/17 2:59 PM
+Tags: JDT/Java/Content Assist, skipExecution
 Testcase-Type: ecl
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa

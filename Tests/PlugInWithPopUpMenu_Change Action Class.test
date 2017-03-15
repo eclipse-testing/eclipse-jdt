@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g
 Element-Name: PlugInWithPopUpMenu_Change Action Class
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _OGdEcDL-EeKWyKj1hZOy8A
-Save-Time: 12/18/12 1:26 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/15/17 12:01 PM
 Tags: JDT/Plug-in Development/Plug-in Project/Templates
 Testcase-Type: ecl
 
@@ -33,13 +33,15 @@ with [get-window "New Plug-in Project"] {
         click
         click
     }
-    get-table | select "Plug-in with a popup menu"
+}
+with [get-window "New Plug-in Project"] {
+    get-table | select "Menu contribution using 4.x API"
     get-button "Next >" | click
 }
-with [get-window "New plug-in project with popup menus"] {
-    get-editbox -after [get-label "Action Class:"] | set-text qqq
+with [get-window "New plug-in project with a sample hello world command"] {
+    get-editbox -after [get-label "Handler Class Name:"] | set-text qqq
     get-button Finish | click
 }
-get-view "Package Explorer" | get-tree | get-item "MyProject/src/myproject.popup.actions/qqq.java" 
+get-view "Package Explorer" | get-tree | get-item "MyProject/src/myproject.handlers/qqq.java" 
     | get-property caption | equals "qqq.java" | verify-true
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

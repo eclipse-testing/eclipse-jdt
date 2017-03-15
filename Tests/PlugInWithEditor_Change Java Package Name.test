@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_l4VYgDLuEeK0utYbRJbZ1g
 Element-Name: PlugInWithEditor_Change Java Package Name
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _3r6EkDOuEeKWyKj1hZOy8A
-Save-Time: 12/18/12 1:26 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/15/17 11:22 AM
 Tags: JDT/Plug-in Development/Plug-in Project/Templates
 Testcase-Type: ecl
 
@@ -33,13 +33,18 @@ with [get-window "New Plug-in Project"] {
         click
         click
     }
-    get-table | select "Plug-in with an editor"
+}
+with [get-window "New Plug-in Project"] {
+    get-table | select "Custom plug-in wizard"
     get-button "Next >" | click
 }
-with [get-window "New plug-in project with a sample XML editor"] {
+with [get-window "New plug-in project with custom templates"] {
+    get-table | get-item -path "XML Editor" | check
+    get-button "Next >" | click
     get-editbox -after [get-label "Java Package Name:"] | set-text "myproject.editors.qqq"
     get-button Finish | click
 }
 get-view "Package Explorer" | get-tree | get-item "MyProject/src/myproject.editors.qqq" | get-property caption 
     | equals "myproject.editors.qqq" | verify-true
+get-editor MyProject | close
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

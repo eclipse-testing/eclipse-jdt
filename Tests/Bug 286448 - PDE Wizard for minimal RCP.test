@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw
 Element-Name: Bug 286448 - PDE Wizard for minimal RCP
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: https://bugs.eclipse.org/bugs/show_bug.cgi?id=286448
 Id: _53LO8DIREeKuaoPIIAkhPg
-Save-Time: 1/15/13 7:26 PM
+Runtime-Version: 2.2.0.201703090017
+Save-Time: 3/10/17 3:44 PM
 Tags: Bugzilla/286448
 Testcase-Type: ecl
 
@@ -37,17 +37,14 @@ with [get-window "New Plug-in Project"] {
     get-button "Next >" | click
     get-group "Rich Client Application" | get-button Yes | click
     get-button "Next >" | click
-    get-table | select "Hello RCP"
+    get-table | select "RCP 3.x application (minimal)"
     get-button Finish | click
 }
 get-window "Open Associated Perspective?" | get-button Yes | click
-with [get-view "Package Explorer" | get-tree] {
+with [get-view "Project Explorer" | get-tree] {
     get-item "Project1/src/project1" | get-property caption | equals project1 | verify-true
-    get-item "Project1/src/project1" | get-property childCount | equals 6 | verify-true
-    get-item "Project1/src/project1/Activator.java" | get-property caption | equals "Activator.java" | verify-true
+    get-item "Project1/src/project1" | get-property childCount | equals 4 | verify-true
     get-item "Project1/src/project1/Application.java" | get-property caption | equals "Application.java" | verify-true
-    get-item "Project1/src/project1/ApplicationActionBarAdvisor.java" | get-property caption 
-        | equals "ApplicationActionBarAdvisor.java" | verify-true
     get-item "Project1/src/project1/ApplicationWorkbenchAdvisor.java" | get-property caption 
         | equals "ApplicationWorkbenchAdvisor.java" | verify-true
     get-item "Project1/src/project1/ApplicationWorkbenchWindowAdvisor.java" | get-property caption 
