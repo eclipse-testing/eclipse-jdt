@@ -1,13 +1,13 @@
---- Q7 testcase ---
+--- RCPTT testcase ---
 Format-Version: 1.0
-Q7-vendor: www.xored.com/q7
 Contexts: _Z3IKUC1lEeKgx4EWM9YkNw,_76wpMD33EeKNqPSkY0DPCQ,_3uxBoDebEeKagI90zyK_pw
 Element-Name: Category Definition_Add Feature
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _5CJTsD6vEeKNqPSkY0DPCQ
-Save-Time: 12/18/12 1:41 PM
+Runtime-Version: 2.2.0.201703230746
+Save-Time: 3/24/17 7:39 PM
 Tags: JDT/Plug-in Development/Category Definition
 Testcase-Type: ecl
 
@@ -32,7 +32,7 @@ with [get-editor "CatDef2.xml" | get-section "Managing the Categories"] {
     get-button "Add Feature..." | click
 }
 with [get-window "Feature Selection"] {
-    get-editbox -after [get-label "Select a feature:"] | set-text My
+    get-editbox -after [get-label "Enter an ID of a feature, or a plug-in contained by a feature ('?' and '*' are supported):"] | set-text My
     get-table | select "MyFeatureProject.*"
     get-button OK | click
 }
